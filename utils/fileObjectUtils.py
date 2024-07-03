@@ -1,14 +1,16 @@
 import hashlib
-import logging
 import os
+import utils.loggerUtils as loggerUtils
+from tenacity import retry, stop_after_attempt, wait_fixed
 
 class FileObjectUtils:
     def __init__(self, fileObject, outputPath, prefixName=""):
         self.fileObject = fileObject
         self.outputPath = outputPath
-        self.prefixName = prefixName.replace(" ","_")
-        self.logger = logging.getLogger(__name__)
-    
+        self.prefixName = prefixName.replace(" ", "_")
+        self.logger = loggerUtils.getLogger(__name__)
+        
+    @retry(stop=stop_after_attempt(3), wait=wait_fixed(2))
     def fileCalculateHash(self):
         self.logger.info("[fileCalculateHash] start")
         try:
@@ -35,39 +37,34 @@ class FileObjectUtils:
             self.logger.info("[fileCalculateHash] end")
             return md5_digest, sha1_digest, sha256_digest
         except Exception as e:
-            self.logger.error("[fileCalculateHash] error", e)  
-            raise RuntimeError(f"Erro inesperado tentar gerar os hashes: {e}")
-
+            self.logger.error("[fileCalculateHash] error", exc_info=True)  
+            raise RuntimeError(f"Unexpected error while trying to generate hashes: {e}")
+    @retry(stop=stop_after_attempt(3), wait=wait_fixed(2))
     def fileExtract(self):
-        print("[fileExtract] start")
-        self.logger.info(f"[fileExtract] start")
+        self.logger.info("[fileExtract] start")
         try:
-            fileName  = self.extractOnlyFileName()
+            fileName = self.extractOnlyFileName()
             outputFilePath = f"{self.outputPath}{os.sep}{self.prefixName}_{fileName}"
-            #countFileExist = self.fileExistsCount(outputFilePath);
             
-            #if(countFileExist > 0):
-            #    outputFilePath += f"_{countFileExist}"  
-                              
-            outfile = open(outputFilePath, 'w')
-            filedata = self.fileObject.read_random(0,self.fileObject.info.meta.size)
-            outfile.write(filedata)
-            outfile.close()
-            print(f"[fileExtract] end: {self.outputPath}")            
+            with open(outputFilePath, 'wb') as outfile:
+                filedata = self.fileObject.read_random(0, self.fileObject.info.meta.size)
+                outfile.write(filedata)
+                
             self.logger.info(f"[fileExtract] end outputPath: {self.outputPath}")
-        except Exception as e:  
-            #self.logger.error("[fileExtract] error", e)  
-            raise RuntimeError(f"Erro inesperado tentar gerar os hashes: {e}")
+        except Exception as e:
+            self.logger.error("[fileExtract] error", exc_info=True)  
+            raise RuntimeError(f"Unexpected error while trying to extract: {e}")
     
     def extractOnlyFileName(self):
-        return self.fileObject.info.name.name.decode('utf-8');
+        return self.fileObject.info.name.name.decode('utf-8')
     
     def fileExistsCount(self, filePath):
         self.logger.info("[fileExistsCount] start")  
         try:
             return os.listdir(filePath).count()
-        except FileNotFoundError as fileNotFoundExecpt:
+        except FileNotFoundError:
             self.logger.info("[fileExistsCount] error file not found")
             return 0
         except Exception as e:
-            self.logger.error("[fileExistsCount] error", e)
+            self.logger.error("[fileExistsCount] error", exc_info=True)
+            return 0

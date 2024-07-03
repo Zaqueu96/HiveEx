@@ -1,0 +1,57 @@
+INFO:__main__:Checking if is file :D:\Forensics Images\Windows Forensics_ForensicVM-Dataset\bart.E01
+INFO:__main__:Checked file: D:\Forensics Images\Windows Forensics_ForensicVM-Dataset\bart.E01
+ERROR:__main__:Partição: 0, Offset: 0, Tamanho: 512, DEC: b'Safety Table'
+ERROR:__main__:Error on read files on partition 0: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000000 with error: Cannot determine file system type
+ERROR:__main__:Partição: 1, Offset: 0, Tamanho: 1048576, DEC: b'Unallocated'
+ERROR:__main__:Error on read files on partition 1: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000000 with error: Cannot determine file system type
+ERROR:__main__:Partição: 2, Offset: 512, Tamanho: 512, DEC: b'GPT Header'
+ERROR:__main__:Error on read files on partition 2: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000200 with error: Cannot determine file system type
+ERROR:__main__:Partição: 3, Offset: 1024, Tamanho: 16384, DEC: b'Partition Table'
+ERROR:__main__:Error on read files on partition 3: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000400 with error: Cannot determine file system type
+ERROR:__main__:Partição: 4, Offset: 1048576, Tamanho: 104857600, DEC: b'EFI system partition'
+ERROR:__main__:Partição: 5, Offset: 105906176, Tamanho: 16777216, DEC: b'Microsoft reserved partition'
+ERROR:__main__:Error on read files on partition 5: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x06500000 with error: Cannot determine file system type
+ERROR:__main__:Partição: 6, Offset: 122683392, Tamanho: 85130739712, DEC: b'Basic data partition'
+INFO:__main__:Checking folders in /Users/
+ERROR:__main__:Partição: 7, Offset: 85253423104, Tamanho: 643825664, DEC: b''
+INFO:__main__:Checking folders in /Users/
+ERROR:__main__:Partição: 8, Offset: 85897248768, Tamanho: 2097152, DEC: b'Unallocated'
+ERROR:__main__:Error on read files on partition 8: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x13ffe00000 with error: Cannot determine file system type
+INFO:__main__:Checking if is file :D:\Forensics Images\Windows Forensics_ForensicVM-Dataset\bart.E01
+INFO:__main__:Checked file: D:\Forensics Images\Windows Forensics_ForensicVM-Dataset\bart.E01
+ERROR:__main__:Partição: 0, Offset: 0, Tamanho: 512, DEC: b'Safety Table'
+ERROR:__main__:Error on read files on partition 0: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000000 with error: Cannot determine file system type
+ERROR:__main__:Partição: 1, Offset: 0, Tamanho: 1048576, DEC: b'Unallocated'
+ERROR:__main__:Error on read files on partition 1: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000000 with error: Cannot determine file system type
+ERROR:__main__:Partição: 2, Offset: 512, Tamanho: 512, DEC: b'GPT Header'
+ERROR:__main__:Error on read files on partition 2: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000200 with error: Cannot determine file system type
+ERROR:__main__:Partição: 3, Offset: 1024, Tamanho: 16384, DEC: b'Partition Table'
+ERROR:__main__:Error on read files on partition 3: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000400 with error: Cannot determine file system type
+ERROR:__main__:Partição: 4, Offset: 1048576, Tamanho: 104857600, DEC: b'EFI system partition'
+ERROR:__main__:Partição: 5, Offset: 105906176, Tamanho: 16777216, DEC: b'Microsoft reserved partition'
+ERROR:__main__:Error on read files on partition 5: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x06500000 with error: Cannot determine file system type
+ERROR:__main__:Partição: 6, Offset: 122683392, Tamanho: 85130739712, DEC: b'Basic data partition'
+INFO:__main__:Checking folders in /Users/
+ERROR:__main__:Partição: 7, Offset: 85253423104, Tamanho: 643825664, DEC: b''
+INFO:__main__:Checking folders in /Users/
+ERROR:__main__:Partição: 8, Offset: 85897248768, Tamanho: 2097152, DEC: b'Unallocated'
+ERROR:__main__:Error on read files on partition 8: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x13ffe00000 with error: Cannot determine file system type
+INFO:__main__:Checking if is file :D:\Forensics Images\Windows Forensics_ForensicVM-Dataset\bart.E01
+INFO:__main__:Checked file: D:\Forensics Images\Windows Forensics_ForensicVM-Dataset\bart.E01
+ERROR:__main__:Partição: 0, Offset: 0, Tamanho: 512, DEC: b'Safety Table'
+ERROR:__main__:Error on read files on partition 0: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000000 with error: Cannot determine file system type
+ERROR:__main__:Partição: 1, Offset: 0, Tamanho: 1048576, DEC: b'Unallocated'
+ERROR:__main__:Error on read files on partition 1: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000000 with error: Cannot determine file system type
+ERROR:__main__:Partição: 2, Offset: 512, Tamanho: 512, DEC: b'GPT Header'
+ERROR:__main__:Error on read files on partition 2: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000200 with error: Cannot determine file system type
+ERROR:__main__:Partição: 3, Offset: 1024, Tamanho: 16384, DEC: b'Partition Table'
+ERROR:__main__:Error on read files on partition 3: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000400 with error: Cannot determine file system type
+ERROR:__main__:Partição: 4, Offset: 1048576, Tamanho: 104857600, DEC: b'EFI system partition'
+ERROR:__main__:Partição: 5, Offset: 105906176, Tamanho: 16777216, DEC: b'Microsoft reserved partition'
+ERROR:__main__:Error on read files on partition 5: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x06500000 with error: Cannot determine file system type
+ERROR:__main__:Partição: 6, Offset: 122683392, Tamanho: 85130739712, DEC: b'Basic data partition'
+INFO:__main__:Checking folders in /Users/
+ERROR:__main__:Partição: 7, Offset: 85253423104, Tamanho: 643825664, DEC: b''
+INFO:__main__:Checking folders in /Users/
+ERROR:__main__:Partição: 8, Offset: 85897248768, Tamanho: 2097152, DEC: b'Unallocated'
+ERROR:__main__:Error on read files on partition 8: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x13ffe00000 with error: Cannot determine file system type
