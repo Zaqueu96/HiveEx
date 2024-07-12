@@ -11,8 +11,13 @@ from tenacity import retry, stop_after_attempt, wait_fixed
 import utils.terminalPrint as termPrint
 from rich.console import Console
 from rich.progress import Progress
+import sys
 
 console = Console()
+
+class DevNull:
+    def write(self, msg):
+        pass
 
 class ExtractHiveType:
     WINDOWS = 'windows'
@@ -33,6 +38,10 @@ class MainCli:
     def __init__(self, arguments):
         self.logger = loggerUtils.getLogger(__name__)
         self.forAllWindowHive = False
+        
+        if(not arguments.debug):
+            sys.stderr = DevNull()
+
 
         self._defineHiveTypesExtractOptions(arguments)
 
@@ -69,7 +78,7 @@ class MainCli:
                     hiveIsDefined = True
 
         if not hiveIsDefined:
-            termPrint.printInfo('At least one hive extraction option must be specified (--windows, --ntuserdat, --sam, --software, --system, --security)')
+            termPrint.printError('At least one hive extraction option must be specified (--windows, --ntuserdat, --sam, --software, --system, --security)')
             raise RuntimeError("At least one hive extraction option must be specified (--windows, --ntuserdat, --sam, --software, --system, --security)")
 
     def getOnlyName(self, entry):
@@ -273,14 +282,15 @@ class MainCli:
 
 
 parser = argparse.ArgumentParser(description='HiveEx for extraction main hives on windows images')
-parser.add_argument('--image', '-i', required=True, type=str, help='Location image E01')
-parser.add_argument('--output', '-o', type=str, default=".",help='Folder to extract files')
-parser.add_argument('--windows', '-w', action='store_true', help='Extract windows hives (SAM, SYSTEM, SOFTWARE, SECURITY)')
+parser.add_argument('--image', '-img', required=True, type=str, help='Location image E01')
+parser.add_argument('--output', '-op', type=str, default=".",help='Folder to extract files')
+parser.add_argument('--windows', '-ws', action='store_true', help='Extract windows hives (SAM, SYSTEM, SOFTWARE, SECURITY)')
 parser.add_argument('--ntuserdat', '-n', action='store_true', help='Extract windows users hives (NTUSER.DAT)')
-parser.add_argument('--sam', '-s', action='store_true', help='Extract hive SAM')
-parser.add_argument('--software', '-sw', action='store_true', help='Extract hive SOFTWARE')
+parser.add_argument('--sam', '-sm', action='store_true', help='Extract hive SAM')
+parser.add_argument('--software', '-sfw', action='store_true', help='Extract hive SOFTWARE')
 parser.add_argument('--system', '-sys', action='store_true', help='Extract hive SYSTEM')
 parser.add_argument('--all', '-a', action='store_true', help='Extract all hives (NTUSER.DAT, SAM, SYSTEM, SOFTWARE, SECURITY)')
+parser.add_argument('--debug', '-d', action='store_true', help='Show errors on console')
 
 args = parser.parse_args()
 print(f" Windows: {args.windows}")
