@@ -39,23 +39,43 @@ class FileObjectUtils:
         except Exception as e:
             self.logger.error("[fileCalculateHash] error", exc_info=True)  
             raise RuntimeError(f"Unexpected error while trying to generate hashes: {e}")
+    
+    def _getOutputFormated(self):
+        fileName = self._extractOnlyFileName()
+        if self.prefixName != None and self.prefixName != "":
+            return f"{self.outputPath}{os.sep}{self.prefixName}_{fileName}" 
+        else:
+            return f"{self.outputPath}{os.sep}{fileName}"
+        
     @retry(stop=stop_after_attempt(3), wait=wait_fixed(2))
     def fileExtract(self):
         self.logger.info("[fileExtract] start")
-        try:
-            fileName = self.extractOnlyFileName()
-            outputFilePath = f"{self.outputPath}{os.sep}{self.prefixName}_{fileName}"
+        try:            
+            outputFilePath = self._getOutputFormated()           
             
             with open(outputFilePath, 'wb') as outfile:
                 filedata = self.fileObject.read_random(0, self.fileObject.info.meta.size)
-                outfile.write(filedata)
+                outfile.write(filedata)                
+            
+            self._generateFileHashes()
                 
             self.logger.info(f"[fileExtract] end outputPath: {self.outputPath}")
         except Exception as e:
             self.logger.error("[fileExtract] error", exc_info=True)  
             raise RuntimeError(f"Unexpected error while trying to extract: {e}")
+        
+    def _generateFileHashes(self):
+        self.logger.info("[_generateFileHashes] init")
+        try:
+            md5_digest, sha1_digest, sha256_digest =  self.fileCalculateHash()
+            with open(f"{self._getOutputFormated()}.hash.txt",'w') as outputFile:
+                outputFile.write(f"MD5: {md5_digest}\nSHA1: {sha1_digest}\nSHA256: {sha256_digest}")
+          
+        except Exception as  e:
+            self.logger.info("generate file hash error")
+            self.logger.error("[_generateFileHashes] error", e)
     
-    def extractOnlyFileName(self):
+    def _extractOnlyFileName(self):
         return self.fileObject.info.name.name.decode('utf-8')
     
     def fileExistsCount(self, filePath):
