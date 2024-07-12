@@ -610,3 +610,736 @@ INFO:__main__:Partição: 7, Offset: 85253423104, Tamanho: 643825664, DEC: b''
 ERROR:__main__:Error on running 7: Only one live display may be active at once
 INFO:__main__:Partição: 8, Offset: 85897248768, Tamanho: 2097152, DEC: b'Unallocated'
 ERROR:__main__:Error on read files on partition 8: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x13ffe00000 with error: Cannot determine file system type
+INFO:__main__:Checking if is file :D:\Forensics Images\Windows Forensics_ForensicVM-Dataset\bart.E01
+INFO:__main__:Checked file: D:\Forensics Images\Windows Forensics_ForensicVM-Dataset\bart.E01
+INFO:__main__:Partição: 0, Offset: 0, Tamanho: 512, DEC: b'Safety Table'
+ERROR:__main__:Error on read files on partition 0: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000000 with error: Cannot determine file system type
+INFO:__main__:Partição: 1, Offset: 0, Tamanho: 1048576, DEC: b'Unallocated'
+ERROR:__main__:Error on read files on partition 1: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000000 with error: Cannot determine file system type
+INFO:__main__:Partição: 2, Offset: 512, Tamanho: 512, DEC: b'GPT Header'
+ERROR:__main__:Error on read files on partition 2: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000200 with error: Cannot determine file system type
+INFO:__main__:Partição: 3, Offset: 1024, Tamanho: 16384, DEC: b'Partition Table'
+ERROR:__main__:Error on read files on partition 3: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000400 with error: Cannot determine file system type
+INFO:__main__:Partição: 4, Offset: 1048576, Tamanho: 104857600, DEC: b'EFI system partition'
+INFO:__main__:Partição: 5, Offset: 105906176, Tamanho: 16777216, DEC: b'Microsoft reserved partition'
+ERROR:__main__:Error on read files on partition 5: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x06500000 with error: Cannot determine file system type
+INFO:__main__:Partição: 6, Offset: 122683392, Tamanho: 85130739712, DEC: b'Basic data partition'
+ERROR:__main__:Error on running 6: Only one live display may be active at once
+INFO:__main__:Partição: 7, Offset: 85253423104, Tamanho: 643825664, DEC: b''
+ERROR:__main__:Error on running 7: Only one live display may be active at once
+INFO:__main__:Partição: 8, Offset: 85897248768, Tamanho: 2097152, DEC: b'Unallocated'
+ERROR:__main__:Error on read files on partition 8: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x13ffe00000 with error: Cannot determine file system type
+INFO:__main__:Checking if is file :D:\Forensics Images\Windows Forensics_ForensicVM-Dataset\bart.E01
+INFO:__main__:Checked file: D:\Forensics Images\Windows Forensics_ForensicVM-Dataset\bart.E01
+INFO:__main__:Partição: 0, Offset: 0, Tamanho: 512, DEC: b'Safety Table'
+ERROR:__main__:Error on read files on partition 0: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000000 with error: Cannot determine file system type
+INFO:__main__:Partição: 1, Offset: 0, Tamanho: 1048576, DEC: b'Unallocated'
+ERROR:__main__:Error on read files on partition 1: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000000 with error: Cannot determine file system type
+INFO:__main__:Partição: 2, Offset: 512, Tamanho: 512, DEC: b'GPT Header'
+ERROR:__main__:Error on read files on partition 2: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000200 with error: Cannot determine file system type
+INFO:__main__:Partição: 3, Offset: 1024, Tamanho: 16384, DEC: b'Partition Table'
+ERROR:__main__:Error on read files on partition 3: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000400 with error: Cannot determine file system type
+INFO:__main__:Partição: 4, Offset: 1048576, Tamanho: 104857600, DEC: b'EFI system partition'
+INFO:__main__:Partição: 5, Offset: 105906176, Tamanho: 16777216, DEC: b'Microsoft reserved partition'
+ERROR:__main__:Error on read files on partition 5: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x06500000 with error: Cannot determine file system type
+INFO:__main__:Partição: 6, Offset: 122683392, Tamanho: 85130739712, DEC: b'Basic data partition'
+ERROR:__main__:Error on running 6: Only one live display may be active at once
+INFO:__main__:Partição: 7, Offset: 85253423104, Tamanho: 643825664, DEC: b''
+ERROR:__main__:Error on running 7: Only one live display may be active at once
+INFO:__main__:Partição: 8, Offset: 85897248768, Tamanho: 2097152, DEC: b'Unallocated'
+ERROR:__main__:Error on read files on partition 8: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x13ffe00000 with error: Cannot determine file system type
+INFO:__main__:Checking if is file :D:\Forensics Images\Windows Forensics_ForensicVM-Dataset\bart.E01
+INFO:__main__:Checked file: D:\Forensics Images\Windows Forensics_ForensicVM-Dataset\bart.E01
+INFO:__main__:Partição: 0, Offset: 0, Tamanho: 512, DEC: b'Safety Table'
+ERROR:__main__:Error on read files on partition 0: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000000 with error: Cannot determine file system type
+INFO:__main__:Partição: 1, Offset: 0, Tamanho: 1048576, DEC: b'Unallocated'
+ERROR:__main__:Error on read files on partition 1: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000000 with error: Cannot determine file system type
+INFO:__main__:Partição: 2, Offset: 512, Tamanho: 512, DEC: b'GPT Header'
+ERROR:__main__:Error on read files on partition 2: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000200 with error: Cannot determine file system type
+INFO:__main__:Partição: 3, Offset: 1024, Tamanho: 16384, DEC: b'Partition Table'
+ERROR:__main__:Error on read files on partition 3: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000400 with error: Cannot determine file system type
+INFO:__main__:Partição: 4, Offset: 1048576, Tamanho: 104857600, DEC: b'EFI system partition'
+INFO:__main__:Partição: 5, Offset: 105906176, Tamanho: 16777216, DEC: b'Microsoft reserved partition'
+ERROR:__main__:Error on read files on partition 5: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x06500000 with error: Cannot determine file system type
+INFO:__main__:Partição: 6, Offset: 122683392, Tamanho: 85130739712, DEC: b'Basic data partition'
+INFO:__main__:Found path /Users/
+INFO:__main__:Checking folders in /Users/
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: e659f0478a6af95fd356a2882335cd65
+INFO:__main__:SHA-1: 01d1899adce20a0118ba7176564a46880f1c981e
+INFO:__main__:SHA-256: 027ec6c8a374833b9eaf700b02654c7cf1d0bc6d7d15d897cd4a0510cbd9231b
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: 265210ccd92d43ffeba0daa32d0718c4
+INFO:__main__:SHA-1: 47dbe7d3f2425eab48877775573c8209b1b2c498
+INFO:__main__:SHA-256: 6fae8b579580d74f2de84ed9d50114bbff4cecbfd95fcfd3737293baa1a7de67
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:__main__:Found path /Windows/
+INFO:__main__:Partição: 7, Offset: 85253423104, Tamanho: 643825664, DEC: b''
+INFO:__main__:Not found path /Users/
+INFO:__main__:Not found path /Windows/
+INFO:__main__:Partição: 8, Offset: 85897248768, Tamanho: 2097152, DEC: b'Unallocated'
+ERROR:__main__:Error on read files on partition 8: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x13ffe00000 with error: Cannot determine file system type
+INFO:__main__:Checking if is file :D:\Forensics Images\Windows Forensics_ForensicVM-Dataset\bart.E01
+INFO:__main__:Checked file: D:\Forensics Images\Windows Forensics_ForensicVM-Dataset\bart.E01
+INFO:__main__:Partição: 0, Offset: 0, Tamanho: 512, DEC: b'Safety Table'
+ERROR:__main__:Error on read files on partition 0: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000000 with error: Cannot determine file system type
+INFO:__main__:Partição: 1, Offset: 0, Tamanho: 1048576, DEC: b'Unallocated'
+ERROR:__main__:Error on read files on partition 1: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000000 with error: Cannot determine file system type
+INFO:__main__:Partição: 2, Offset: 512, Tamanho: 512, DEC: b'GPT Header'
+ERROR:__main__:Error on read files on partition 2: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000200 with error: Cannot determine file system type
+INFO:__main__:Partição: 3, Offset: 1024, Tamanho: 16384, DEC: b'Partition Table'
+ERROR:__main__:Error on read files on partition 3: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000400 with error: Cannot determine file system type
+INFO:__main__:Partição: 4, Offset: 1048576, Tamanho: 104857600, DEC: b'EFI system partition'
+INFO:__main__:Partição: 5, Offset: 105906176, Tamanho: 16777216, DEC: b'Microsoft reserved partition'
+ERROR:__main__:Error on read files on partition 5: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x06500000 with error: Cannot determine file system type
+INFO:__main__:Partição: 6, Offset: 122683392, Tamanho: 85130739712, DEC: b'Basic data partition'
+INFO:__main__:Found path /Users/
+INFO:__main__:Checking folders in /Users/
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: e659f0478a6af95fd356a2882335cd65
+INFO:__main__:SHA-1: 01d1899adce20a0118ba7176564a46880f1c981e
+INFO:__main__:SHA-256: 027ec6c8a374833b9eaf700b02654c7cf1d0bc6d7d15d897cd4a0510cbd9231b
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: 265210ccd92d43ffeba0daa32d0718c4
+INFO:__main__:SHA-1: 47dbe7d3f2425eab48877775573c8209b1b2c498
+INFO:__main__:SHA-256: 6fae8b579580d74f2de84ed9d50114bbff4cecbfd95fcfd3737293baa1a7de67
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:__main__:Found path /Windows/
+INFO:__main__:Partição: 7, Offset: 85253423104, Tamanho: 643825664, DEC: b''
+INFO:__main__:Not found path /Users/
+INFO:__main__:Not found path /Windows/
+INFO:__main__:Partição: 8, Offset: 85897248768, Tamanho: 2097152, DEC: b'Unallocated'
+ERROR:__main__:Error on read files on partition 8: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x13ffe00000 with error: Cannot determine file system type
+INFO:__main__:Checking if is file :D:\Forensics Images\Windows Forensics_ForensicVM-Dataset\bart.E01
+INFO:__main__:Checked file: D:\Forensics Images\Windows Forensics_ForensicVM-Dataset\bart.E01
+INFO:__main__:Partição: 0, Offset: 0, Tamanho: 512, DEC: b'Safety Table'
+ERROR:__main__:Error on read files on partition 0: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000000 with error: Cannot determine file system type
+INFO:__main__:Partição: 1, Offset: 0, Tamanho: 1048576, DEC: b'Unallocated'
+ERROR:__main__:Error on read files on partition 1: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000000 with error: Cannot determine file system type
+INFO:__main__:Partição: 2, Offset: 512, Tamanho: 512, DEC: b'GPT Header'
+ERROR:__main__:Error on read files on partition 2: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000200 with error: Cannot determine file system type
+INFO:__main__:Partição: 3, Offset: 1024, Tamanho: 16384, DEC: b'Partition Table'
+ERROR:__main__:Error on read files on partition 3: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000400 with error: Cannot determine file system type
+INFO:__main__:Partição: 4, Offset: 1048576, Tamanho: 104857600, DEC: b'EFI system partition'
+INFO:__main__:Partição: 5, Offset: 105906176, Tamanho: 16777216, DEC: b'Microsoft reserved partition'
+ERROR:__main__:Error on read files on partition 5: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x06500000 with error: Cannot determine file system type
+INFO:__main__:Partição: 6, Offset: 122683392, Tamanho: 85130739712, DEC: b'Basic data partition'
+INFO:__main__:Found path /Users/
+INFO:__main__:Checking folders in /Users/
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: e659f0478a6af95fd356a2882335cd65
+INFO:__main__:SHA-1: 01d1899adce20a0118ba7176564a46880f1c981e
+INFO:__main__:SHA-256: 027ec6c8a374833b9eaf700b02654c7cf1d0bc6d7d15d897cd4a0510cbd9231b
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: 265210ccd92d43ffeba0daa32d0718c4
+INFO:__main__:SHA-1: 47dbe7d3f2425eab48877775573c8209b1b2c498
+INFO:__main__:SHA-256: 6fae8b579580d74f2de84ed9d50114bbff4cecbfd95fcfd3737293baa1a7de67
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:__main__:Found path /Windows/
+INFO:__main__:Partição: 7, Offset: 85253423104, Tamanho: 643825664, DEC: b''
+INFO:__main__:Not found path /Users/
+INFO:__main__:Not found path /Windows/
+INFO:__main__:Partição: 8, Offset: 85897248768, Tamanho: 2097152, DEC: b'Unallocated'
+ERROR:__main__:Error on read files on partition 8: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x13ffe00000 with error: Cannot determine file system type
+INFO:__main__:Checking if is file :D:\Forensics Images\Windows Forensics_ForensicVM-Dataset\bart.E01
+INFO:__main__:Checked file: D:\Forensics Images\Windows Forensics_ForensicVM-Dataset\bart.E01
+INFO:__main__:Partição: 0, Offset: 0, Tamanho: 512, DEC: b'Safety Table'
+ERROR:__main__:Error on read files on partition 0: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000000 with error: Cannot determine file system type
+INFO:__main__:Partição: 1, Offset: 0, Tamanho: 1048576, DEC: b'Unallocated'
+ERROR:__main__:Error on read files on partition 1: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000000 with error: Cannot determine file system type
+INFO:__main__:Partição: 2, Offset: 512, Tamanho: 512, DEC: b'GPT Header'
+ERROR:__main__:Error on read files on partition 2: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000200 with error: Cannot determine file system type
+INFO:__main__:Partição: 3, Offset: 1024, Tamanho: 16384, DEC: b'Partition Table'
+ERROR:__main__:Error on read files on partition 3: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000400 with error: Cannot determine file system type
+INFO:__main__:Partição: 4, Offset: 1048576, Tamanho: 104857600, DEC: b'EFI system partition'
+INFO:__main__:Partição: 5, Offset: 105906176, Tamanho: 16777216, DEC: b'Microsoft reserved partition'
+ERROR:__main__:Error on read files on partition 5: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x06500000 with error: Cannot determine file system type
+INFO:__main__:Partição: 6, Offset: 122683392, Tamanho: 85130739712, DEC: b'Basic data partition'
+INFO:__main__:Found path /Users/
+INFO:__main__:Checking folders in /Users/
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: e659f0478a6af95fd356a2882335cd65
+INFO:__main__:SHA-1: 01d1899adce20a0118ba7176564a46880f1c981e
+INFO:__main__:SHA-256: 027ec6c8a374833b9eaf700b02654c7cf1d0bc6d7d15d897cd4a0510cbd9231b
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: 265210ccd92d43ffeba0daa32d0718c4
+INFO:__main__:SHA-1: 47dbe7d3f2425eab48877775573c8209b1b2c498
+INFO:__main__:SHA-256: 6fae8b579580d74f2de84ed9d50114bbff4cecbfd95fcfd3737293baa1a7de67
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:__main__:Found path /Windows/
+INFO:__main__:Partição: 7, Offset: 85253423104, Tamanho: 643825664, DEC: b''
+INFO:__main__:Not found path /Users/
+INFO:__main__:Not found path /Windows/
+INFO:__main__:Partição: 8, Offset: 85897248768, Tamanho: 2097152, DEC: b'Unallocated'
+ERROR:__main__:Error on read files on partition 8: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x13ffe00000 with error: Cannot determine file system type
+INFO:__main__:Checking if is file :D:\Forensics Images\Windows Forensics_ForensicVM-Dataset\bart.E01
+INFO:__main__:Checked file: D:\Forensics Images\Windows Forensics_ForensicVM-Dataset\bart.E01
+INFO:__main__:Partição: 0, Offset: 0, Tamanho: 512, DEC: b'Safety Table'
+ERROR:__main__:Error on read files on partition 0: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000000 with error: Cannot determine file system type
+INFO:__main__:Partição: 1, Offset: 0, Tamanho: 1048576, DEC: b'Unallocated'
+ERROR:__main__:Error on read files on partition 1: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000000 with error: Cannot determine file system type
+INFO:__main__:Partição: 2, Offset: 512, Tamanho: 512, DEC: b'GPT Header'
+ERROR:__main__:Error on read files on partition 2: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000200 with error: Cannot determine file system type
+INFO:__main__:Partição: 3, Offset: 1024, Tamanho: 16384, DEC: b'Partition Table'
+ERROR:__main__:Error on read files on partition 3: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000400 with error: Cannot determine file system type
+INFO:__main__:Partição: 4, Offset: 1048576, Tamanho: 104857600, DEC: b'EFI system partition'
+INFO:__main__:Partição: 5, Offset: 105906176, Tamanho: 16777216, DEC: b'Microsoft reserved partition'
+ERROR:__main__:Error on read files on partition 5: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x06500000 with error: Cannot determine file system type
+INFO:__main__:Partição: 6, Offset: 122683392, Tamanho: 85130739712, DEC: b'Basic data partition'
+INFO:__main__:Not found path /Users/
+INFO:__main__:Found path /Windows/
+INFO:__main__:Name: SAM found
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: c27ded2a37886c8ccfc83143cf181662
+INFO:__main__:SHA-1: 8f13503b432ca5d24ad33b529f323913bbe997f4
+INFO:__main__:SHA-256: e660374ef4b85623e9e113e9fdd14d655a51a9a3a28d0840b568cd08521df667
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:__main__:Partição: 7, Offset: 85253423104, Tamanho: 643825664, DEC: b''
+INFO:__main__:Not found path /Users/
+INFO:__main__:Not found path /Windows/
+INFO:__main__:Partição: 8, Offset: 85897248768, Tamanho: 2097152, DEC: b'Unallocated'
+ERROR:__main__:Error on read files on partition 8: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x13ffe00000 with error: Cannot determine file system type
+INFO:__main__:Checking if is file :D:\Forensics Images\Windows Forensics_ForensicVM-Dataset\bart.E01
+INFO:__main__:Checked file: D:\Forensics Images\Windows Forensics_ForensicVM-Dataset\bart.E01
+INFO:__main__:Partição: 0, Offset: 0, Tamanho: 512, DEC: b'Safety Table'
+ERROR:__main__:Error on read files on partition 0: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000000 with error: Cannot determine file system type
+INFO:__main__:Partição: 1, Offset: 0, Tamanho: 1048576, DEC: b'Unallocated'
+ERROR:__main__:Error on read files on partition 1: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000000 with error: Cannot determine file system type
+INFO:__main__:Partição: 2, Offset: 512, Tamanho: 512, DEC: b'GPT Header'
+ERROR:__main__:Error on read files on partition 2: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000200 with error: Cannot determine file system type
+INFO:__main__:Partição: 3, Offset: 1024, Tamanho: 16384, DEC: b'Partition Table'
+ERROR:__main__:Error on read files on partition 3: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000400 with error: Cannot determine file system type
+INFO:__main__:Partição: 4, Offset: 1048576, Tamanho: 104857600, DEC: b'EFI system partition'
+INFO:__main__:Partição: 5, Offset: 105906176, Tamanho: 16777216, DEC: b'Microsoft reserved partition'
+ERROR:__main__:Error on read files on partition 5: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x06500000 with error: Cannot determine file system type
+INFO:__main__:Partição: 6, Offset: 122683392, Tamanho: 85130739712, DEC: b'Basic data partition'
+INFO:__main__:Not found path /Users/
+INFO:__main__:Found path /Windows/
+INFO:__main__:Name: SYSTEM found
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: 61b5e9dae6a5a34d4d10d60dfca4d969
+INFO:__main__:SHA-1: 223d13765456f9183ac1e44b09a5b599eff447a2
+INFO:__main__:SHA-256: f4458492e90082fb5289968ea74c0508f00a3b59150ebc527221182018496475
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:__main__:Name: SOFTWARE found
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: c7139c81b73b4abda420bed0fdcbe12e
+INFO:__main__:SHA-1: 65de2e7b49467fa272331f0717a3cf49b0884a7d
+INFO:__main__:SHA-256: f21d63dbd361dfb5b7e8981bc83492eacf56f6d24b60087c18af4608eb5dfb83
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:__main__:Name: SAM found
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: c27ded2a37886c8ccfc83143cf181662
+INFO:__main__:SHA-1: 8f13503b432ca5d24ad33b529f323913bbe997f4
+INFO:__main__:SHA-256: e660374ef4b85623e9e113e9fdd14d655a51a9a3a28d0840b568cd08521df667
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:__main__:Name: SECURITY found
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: 2ca7a20598825430943be9f2573f89d3
+INFO:__main__:SHA-1: e70f4d582b7ef4b5dc572385ce5b2c7e6f406b81
+INFO:__main__:SHA-256: 154c05e6b9a45727e1f20d53967c39a200f59ba0ad7c12a061886fe9a18f0451
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:__main__:Partição: 7, Offset: 85253423104, Tamanho: 643825664, DEC: b''
+INFO:__main__:Not found path /Users/
+INFO:__main__:Not found path /Windows/
+INFO:__main__:Partição: 8, Offset: 85897248768, Tamanho: 2097152, DEC: b'Unallocated'
+ERROR:__main__:Error on read files on partition 8: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x13ffe00000 with error: Cannot determine file system type
+INFO:__main__:Checking if is file :D:\Forensics Images\Windows Forensics_ForensicVM-Dataset\bart.E01
+INFO:__main__:Checked file: D:\Forensics Images\Windows Forensics_ForensicVM-Dataset\bart.E01
+INFO:__main__:Partição: 0, Offset: 0, Tamanho: 512, DEC: b'Safety Table'
+ERROR:__main__:Error on read files on partition 0: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000000 with error: Cannot determine file system type
+INFO:__main__:Partição: 1, Offset: 0, Tamanho: 1048576, DEC: b'Unallocated'
+ERROR:__main__:Error on read files on partition 1: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000000 with error: Cannot determine file system type
+INFO:__main__:Partição: 2, Offset: 512, Tamanho: 512, DEC: b'GPT Header'
+ERROR:__main__:Error on read files on partition 2: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000200 with error: Cannot determine file system type
+INFO:__main__:Partição: 3, Offset: 1024, Tamanho: 16384, DEC: b'Partition Table'
+ERROR:__main__:Error on read files on partition 3: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000400 with error: Cannot determine file system type
+INFO:__main__:Partição: 4, Offset: 1048576, Tamanho: 104857600, DEC: b'EFI system partition'
+INFO:__main__:Partição: 5, Offset: 105906176, Tamanho: 16777216, DEC: b'Microsoft reserved partition'
+ERROR:__main__:Error on read files on partition 5: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x06500000 with error: Cannot determine file system type
+INFO:__main__:Partição: 6, Offset: 122683392, Tamanho: 85130739712, DEC: b'Basic data partition'
+INFO:__main__:Found path /Users/
+INFO:__main__:Checking folders in /Users/
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: e659f0478a6af95fd356a2882335cd65
+INFO:__main__:SHA-1: 01d1899adce20a0118ba7176564a46880f1c981e
+INFO:__main__:SHA-256: 027ec6c8a374833b9eaf700b02654c7cf1d0bc6d7d15d897cd4a0510cbd9231b
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: 265210ccd92d43ffeba0daa32d0718c4
+INFO:__main__:SHA-1: 47dbe7d3f2425eab48877775573c8209b1b2c498
+INFO:__main__:SHA-256: 6fae8b579580d74f2de84ed9d50114bbff4cecbfd95fcfd3737293baa1a7de67
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:__main__:Found path /Windows/
+INFO:__main__:Name: SYSTEM found
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: 61b5e9dae6a5a34d4d10d60dfca4d969
+INFO:__main__:SHA-1: 223d13765456f9183ac1e44b09a5b599eff447a2
+INFO:__main__:SHA-256: f4458492e90082fb5289968ea74c0508f00a3b59150ebc527221182018496475
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:__main__:Name: SOFTWARE found
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: c7139c81b73b4abda420bed0fdcbe12e
+INFO:__main__:SHA-1: 65de2e7b49467fa272331f0717a3cf49b0884a7d
+INFO:__main__:SHA-256: f21d63dbd361dfb5b7e8981bc83492eacf56f6d24b60087c18af4608eb5dfb83
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:__main__:Name: SAM found
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: c27ded2a37886c8ccfc83143cf181662
+INFO:__main__:SHA-1: 8f13503b432ca5d24ad33b529f323913bbe997f4
+INFO:__main__:SHA-256: e660374ef4b85623e9e113e9fdd14d655a51a9a3a28d0840b568cd08521df667
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:__main__:Name: SECURITY found
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: 2ca7a20598825430943be9f2573f89d3
+INFO:__main__:SHA-1: e70f4d582b7ef4b5dc572385ce5b2c7e6f406b81
+INFO:__main__:SHA-256: 154c05e6b9a45727e1f20d53967c39a200f59ba0ad7c12a061886fe9a18f0451
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:__main__:Partição: 7, Offset: 85253423104, Tamanho: 643825664, DEC: b''
+INFO:__main__:Not found path /Users/
+INFO:__main__:Not found path /Windows/
+INFO:__main__:Partição: 8, Offset: 85897248768, Tamanho: 2097152, DEC: b'Unallocated'
+ERROR:__main__:Error on read files on partition 8: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x13ffe00000 with error: Cannot determine file system type
+INFO:__main__:Checking if is file :D:\Forensics Images\Windows Forensics_ForensicVM-Dataset\bart.E01
+INFO:__main__:Checked file: D:\Forensics Images\Windows Forensics_ForensicVM-Dataset\bart.E01
+INFO:__main__:Partição: 0, Offset: 0, Tamanho: 512, DEC: b'Safety Table'
+ERROR:__main__:Error on read files on partition 0: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000000 with error: Cannot determine file system type
+INFO:__main__:Partição: 1, Offset: 0, Tamanho: 1048576, DEC: b'Unallocated'
+ERROR:__main__:Error on read files on partition 1: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000000 with error: Cannot determine file system type
+INFO:__main__:Partição: 2, Offset: 512, Tamanho: 512, DEC: b'GPT Header'
+ERROR:__main__:Error on read files on partition 2: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000200 with error: Cannot determine file system type
+INFO:__main__:Partição: 3, Offset: 1024, Tamanho: 16384, DEC: b'Partition Table'
+ERROR:__main__:Error on read files on partition 3: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000400 with error: Cannot determine file system type
+INFO:__main__:Partição: 4, Offset: 1048576, Tamanho: 104857600, DEC: b'EFI system partition'
+INFO:__main__:Partição: 5, Offset: 105906176, Tamanho: 16777216, DEC: b'Microsoft reserved partition'
+ERROR:__main__:Error on read files on partition 5: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x06500000 with error: Cannot determine file system type
+INFO:__main__:Partição: 6, Offset: 122683392, Tamanho: 85130739712, DEC: b'Basic data partition'
+INFO:__main__:Found path /Users/
+INFO:__main__:Checking folders in /Users/
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: e659f0478a6af95fd356a2882335cd65
+INFO:__main__:SHA-1: 01d1899adce20a0118ba7176564a46880f1c981e
+INFO:__main__:SHA-256: 027ec6c8a374833b9eaf700b02654c7cf1d0bc6d7d15d897cd4a0510cbd9231b
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: 265210ccd92d43ffeba0daa32d0718c4
+INFO:__main__:SHA-1: 47dbe7d3f2425eab48877775573c8209b1b2c498
+INFO:__main__:SHA-256: 6fae8b579580d74f2de84ed9d50114bbff4cecbfd95fcfd3737293baa1a7de67
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:__main__:Found path /Windows/
+INFO:__main__:Name: SYSTEM found
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: 61b5e9dae6a5a34d4d10d60dfca4d969
+INFO:__main__:SHA-1: 223d13765456f9183ac1e44b09a5b599eff447a2
+INFO:__main__:SHA-256: f4458492e90082fb5289968ea74c0508f00a3b59150ebc527221182018496475
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:__main__:Name: SOFTWARE found
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: c7139c81b73b4abda420bed0fdcbe12e
+INFO:__main__:SHA-1: 65de2e7b49467fa272331f0717a3cf49b0884a7d
+INFO:__main__:SHA-256: f21d63dbd361dfb5b7e8981bc83492eacf56f6d24b60087c18af4608eb5dfb83
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:__main__:Name: SAM found
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: c27ded2a37886c8ccfc83143cf181662
+INFO:__main__:SHA-1: 8f13503b432ca5d24ad33b529f323913bbe997f4
+INFO:__main__:SHA-256: e660374ef4b85623e9e113e9fdd14d655a51a9a3a28d0840b568cd08521df667
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:__main__:Name: SECURITY found
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: 2ca7a20598825430943be9f2573f89d3
+INFO:__main__:SHA-1: e70f4d582b7ef4b5dc572385ce5b2c7e6f406b81
+INFO:__main__:SHA-256: 154c05e6b9a45727e1f20d53967c39a200f59ba0ad7c12a061886fe9a18f0451
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:__main__:Partição: 7, Offset: 85253423104, Tamanho: 643825664, DEC: b''
+INFO:__main__:Not found path /Users/
+INFO:__main__:Not found path /Windows/
+INFO:__main__:Partição: 8, Offset: 85897248768, Tamanho: 2097152, DEC: b'Unallocated'
+ERROR:__main__:Error on read files on partition 8: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x13ffe00000 with error: Cannot determine file system type
+INFO:__main__:Checking if is file :D:\Forensics Images\Windows Forensics_ForensicVM-Dataset\bart.E01
+INFO:__main__:Checked file: D:\Forensics Images\Windows Forensics_ForensicVM-Dataset\bart.E01
+INFO:__main__:Partição: 0, Offset: 0, Tamanho: 512, DEC: b'Safety Table'
+ERROR:__main__:Error on read files on partition 0: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000000 with error: Cannot determine file system type
+INFO:__main__:Partição: 1, Offset: 0, Tamanho: 1048576, DEC: b'Unallocated'
+ERROR:__main__:Error on read files on partition 1: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000000 with error: Cannot determine file system type
+INFO:__main__:Partição: 2, Offset: 512, Tamanho: 512, DEC: b'GPT Header'
+ERROR:__main__:Error on read files on partition 2: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000200 with error: Cannot determine file system type
+INFO:__main__:Partição: 3, Offset: 1024, Tamanho: 16384, DEC: b'Partition Table'
+ERROR:__main__:Error on read files on partition 3: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000400 with error: Cannot determine file system type
+INFO:__main__:Partição: 4, Offset: 1048576, Tamanho: 104857600, DEC: b'EFI system partition'
+INFO:__main__:Partição: 5, Offset: 105906176, Tamanho: 16777216, DEC: b'Microsoft reserved partition'
+ERROR:__main__:Error on read files on partition 5: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x06500000 with error: Cannot determine file system type
+INFO:__main__:Partição: 6, Offset: 122683392, Tamanho: 85130739712, DEC: b'Basic data partition'
+INFO:__main__:Found path /Users/
+INFO:__main__:Checking folders in /Users/
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: e659f0478a6af95fd356a2882335cd65
+INFO:__main__:SHA-1: 01d1899adce20a0118ba7176564a46880f1c981e
+INFO:__main__:SHA-256: 027ec6c8a374833b9eaf700b02654c7cf1d0bc6d7d15d897cd4a0510cbd9231b
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: 265210ccd92d43ffeba0daa32d0718c4
+INFO:__main__:SHA-1: 47dbe7d3f2425eab48877775573c8209b1b2c498
+INFO:__main__:SHA-256: 6fae8b579580d74f2de84ed9d50114bbff4cecbfd95fcfd3737293baa1a7de67
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:__main__:Found path /Windows/
+INFO:__main__:Name: SYSTEM found
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: 61b5e9dae6a5a34d4d10d60dfca4d969
+INFO:__main__:SHA-1: 223d13765456f9183ac1e44b09a5b599eff447a2
+INFO:__main__:SHA-256: f4458492e90082fb5289968ea74c0508f00a3b59150ebc527221182018496475
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:__main__:Name: SOFTWARE found
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: c7139c81b73b4abda420bed0fdcbe12e
+INFO:__main__:SHA-1: 65de2e7b49467fa272331f0717a3cf49b0884a7d
+INFO:__main__:SHA-256: f21d63dbd361dfb5b7e8981bc83492eacf56f6d24b60087c18af4608eb5dfb83
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:__main__:Name: SAM found
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: c27ded2a37886c8ccfc83143cf181662
+INFO:__main__:SHA-1: 8f13503b432ca5d24ad33b529f323913bbe997f4
+INFO:__main__:SHA-256: e660374ef4b85623e9e113e9fdd14d655a51a9a3a28d0840b568cd08521df667
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:__main__:Name: SECURITY found
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: 2ca7a20598825430943be9f2573f89d3
+INFO:__main__:SHA-1: e70f4d582b7ef4b5dc572385ce5b2c7e6f406b81
+INFO:__main__:SHA-256: 154c05e6b9a45727e1f20d53967c39a200f59ba0ad7c12a061886fe9a18f0451
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:__main__:Partição: 7, Offset: 85253423104, Tamanho: 643825664, DEC: b''
+INFO:__main__:Not found path /Users/
+INFO:__main__:Not found path /Windows/
+INFO:__main__:Partição: 8, Offset: 85897248768, Tamanho: 2097152, DEC: b'Unallocated'
+ERROR:__main__:Error on read files on partition 8: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x13ffe00000 with error: Cannot determine file system type
+INFO:__main__:Checking if is file :D:\Forensics Images\Windows Forensics_ForensicVM-Dataset\bart.E01
+INFO:__main__:Checked file: D:\Forensics Images\Windows Forensics_ForensicVM-Dataset\bart.E01
+INFO:__main__:Partição: 0, Offset: 0, Tamanho: 512, DEC: b'Safety Table'
+ERROR:__main__:Error on read files on partition 0: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000000 with error: Cannot determine file system type
+INFO:__main__:Partição: 1, Offset: 0, Tamanho: 1048576, DEC: b'Unallocated'
+ERROR:__main__:Error on read files on partition 1: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000000 with error: Cannot determine file system type
+INFO:__main__:Partição: 2, Offset: 512, Tamanho: 512, DEC: b'GPT Header'
+ERROR:__main__:Error on read files on partition 2: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000200 with error: Cannot determine file system type
+INFO:__main__:Partição: 3, Offset: 1024, Tamanho: 16384, DEC: b'Partition Table'
+ERROR:__main__:Error on read files on partition 3: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000400 with error: Cannot determine file system type
+INFO:__main__:Partição: 4, Offset: 1048576, Tamanho: 104857600, DEC: b'EFI system partition'
+INFO:__main__:Partição: 5, Offset: 105906176, Tamanho: 16777216, DEC: b'Microsoft reserved partition'
+ERROR:__main__:Error on read files on partition 5: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x06500000 with error: Cannot determine file system type
+INFO:__main__:Partição: 6, Offset: 122683392, Tamanho: 85130739712, DEC: b'Basic data partition'
+INFO:__main__:Found path /Users/
+INFO:__main__:Checking folders in /Users/
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: e659f0478a6af95fd356a2882335cd65
+INFO:__main__:SHA-1: 01d1899adce20a0118ba7176564a46880f1c981e
+INFO:__main__:SHA-256: 027ec6c8a374833b9eaf700b02654c7cf1d0bc6d7d15d897cd4a0510cbd9231b
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: 265210ccd92d43ffeba0daa32d0718c4
+INFO:__main__:SHA-1: 47dbe7d3f2425eab48877775573c8209b1b2c498
+INFO:__main__:SHA-256: 6fae8b579580d74f2de84ed9d50114bbff4cecbfd95fcfd3737293baa1a7de67
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:__main__:Found path /Windows/
+INFO:__main__:Name: SYSTEM found
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: 61b5e9dae6a5a34d4d10d60dfca4d969
+INFO:__main__:SHA-1: 223d13765456f9183ac1e44b09a5b599eff447a2
+INFO:__main__:SHA-256: f4458492e90082fb5289968ea74c0508f00a3b59150ebc527221182018496475
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:__main__:Name: SOFTWARE found
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: c7139c81b73b4abda420bed0fdcbe12e
+INFO:__main__:SHA-1: 65de2e7b49467fa272331f0717a3cf49b0884a7d
+INFO:__main__:SHA-256: f21d63dbd361dfb5b7e8981bc83492eacf56f6d24b60087c18af4608eb5dfb83
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:__main__:Name: SAM found
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: c27ded2a37886c8ccfc83143cf181662
+INFO:__main__:SHA-1: 8f13503b432ca5d24ad33b529f323913bbe997f4
+INFO:__main__:SHA-256: e660374ef4b85623e9e113e9fdd14d655a51a9a3a28d0840b568cd08521df667
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:__main__:Name: SECURITY found
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: 2ca7a20598825430943be9f2573f89d3
+INFO:__main__:SHA-1: e70f4d582b7ef4b5dc572385ce5b2c7e6f406b81
+INFO:__main__:SHA-256: 154c05e6b9a45727e1f20d53967c39a200f59ba0ad7c12a061886fe9a18f0451
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:__main__:Partição: 7, Offset: 85253423104, Tamanho: 643825664, DEC: b''
+INFO:__main__:Not found path /Users/
+INFO:__main__:Not found path /Windows/
+INFO:__main__:Partição: 8, Offset: 85897248768, Tamanho: 2097152, DEC: b'Unallocated'
+ERROR:__main__:Error on read files on partition 8: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x13ffe00000 with error: Cannot determine file system type
+INFO:__main__:Checking if is file :D:\Forensics Images\Windows Forensics_ForensicVM-Dataset\bart.E01
+INFO:__main__:Checked file: D:\Forensics Images\Windows Forensics_ForensicVM-Dataset\bart.E01
+INFO:__main__:Partição: 0, Offset: 0, Tamanho: 512, DEC: b'Safety Table'
+ERROR:__main__:Error on read files on partition 0: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000000 with error: Cannot determine file system type
+INFO:__main__:Partição: 1, Offset: 0, Tamanho: 1048576, DEC: b'Unallocated'
+ERROR:__main__:Error on read files on partition 1: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000000 with error: Cannot determine file system type
+INFO:__main__:Partição: 2, Offset: 512, Tamanho: 512, DEC: b'GPT Header'
+ERROR:__main__:Error on read files on partition 2: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000200 with error: Cannot determine file system type
+INFO:__main__:Partição: 3, Offset: 1024, Tamanho: 16384, DEC: b'Partition Table'
+ERROR:__main__:Error on read files on partition 3: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x00000400 with error: Cannot determine file system type
+INFO:__main__:Partição: 4, Offset: 1048576, Tamanho: 104857600, DEC: b'EFI system partition'
+INFO:__main__:Partição: 5, Offset: 105906176, Tamanho: 16777216, DEC: b'Microsoft reserved partition'
+ERROR:__main__:Error on read files on partition 5: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x06500000 with error: Cannot determine file system type
+INFO:__main__:Partição: 6, Offset: 122683392, Tamanho: 85130739712, DEC: b'Basic data partition'
+INFO:__main__:Found path /Users/
+INFO:__main__:Checking folders in /Users/
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: e659f0478a6af95fd356a2882335cd65
+INFO:__main__:SHA-1: 01d1899adce20a0118ba7176564a46880f1c981e
+INFO:__main__:SHA-256: 027ec6c8a374833b9eaf700b02654c7cf1d0bc6d7d15d897cd4a0510cbd9231b
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: 265210ccd92d43ffeba0daa32d0718c4
+INFO:__main__:SHA-1: 47dbe7d3f2425eab48877775573c8209b1b2c498
+INFO:__main__:SHA-256: 6fae8b579580d74f2de84ed9d50114bbff4cecbfd95fcfd3737293baa1a7de67
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:__main__:Found path /Windows/
+INFO:__main__:Name: SYSTEM found
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: 61b5e9dae6a5a34d4d10d60dfca4d969
+INFO:__main__:SHA-1: 223d13765456f9183ac1e44b09a5b599eff447a2
+INFO:__main__:SHA-256: f4458492e90082fb5289968ea74c0508f00a3b59150ebc527221182018496475
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:__main__:Name: SOFTWARE found
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: c7139c81b73b4abda420bed0fdcbe12e
+INFO:__main__:SHA-1: 65de2e7b49467fa272331f0717a3cf49b0884a7d
+INFO:__main__:SHA-256: f21d63dbd361dfb5b7e8981bc83492eacf56f6d24b60087c18af4608eb5dfb83
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:__main__:Name: SAM found
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: c27ded2a37886c8ccfc83143cf181662
+INFO:__main__:SHA-1: 8f13503b432ca5d24ad33b529f323913bbe997f4
+INFO:__main__:SHA-256: e660374ef4b85623e9e113e9fdd14d655a51a9a3a28d0840b568cd08521df667
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:__main__:Name: SECURITY found
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:__main__:MD5: 2ca7a20598825430943be9f2573f89d3
+INFO:__main__:SHA-1: e70f4d582b7ef4b5dc572385ce5b2c7e6f406b81
+INFO:__main__:SHA-256: 154c05e6b9a45727e1f20d53967c39a200f59ba0ad7c12a061886fe9a18f0451
+INFO:utils.fileObjectUtils:[fileExtract] start
+INFO:utils.fileObjectUtils:[_generateFileHashes] init
+INFO:utils.fileObjectUtils:[fileCalculateHash] start
+INFO:utils.fileObjectUtils:[fileCalculateHash] end
+INFO:utils.fileObjectUtils:[fileExtract] end outputPath: .
+INFO:__main__:Partição: 7, Offset: 85253423104, Tamanho: 643825664, DEC: b''
+INFO:__main__:Not found path /Users/
+INFO:__main__:Not found path /Windows/
+INFO:__main__:Partição: 8, Offset: 85897248768, Tamanho: 2097152, DEC: b'Unallocated'
+ERROR:__main__:Error on read files on partition 8: FS_Info_Con: (tsk3.cpp:214) Unable to open the image as a filesystem at offset: 0x13ffe00000 with error: Cannot determine file system type

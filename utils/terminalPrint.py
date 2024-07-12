@@ -7,21 +7,18 @@ console = Console()
 term = Terminal()
 
 
+
 def printError(message):
-    text = Text(f"ERROR: {message}", style="bold white on red")
-    console.print(text)    
-    
+    print(term.bold_white_on_red(f"ERROR: {message}"))
+
 def printInfo(message):
-     text = Text(f"INFO: {message}", style="bold blue on white")
-     console.print(text)
-     
+    print(term.bold_blue_on_white(f"INFO: {message}"))
+
 def printWarn(message):
-    text = Text(f"WARNING: {message}", style="bold black on yellow")
-    console.print(text)
-    
+    print(term.bold_black_on_yellow(f"WARNING: {message}"))
+
 def printSuccess(message):
-    text = Text(f"SUCCESS: {message}", style="bold black on green")
-    console.print(text)
+    print(term.bold_black_on_green(f"SUCCESS: {message}"))
 
 def getTablePrint(title):
     table = Table(title=title)

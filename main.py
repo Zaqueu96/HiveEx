@@ -1,4 +1,4 @@
-#/usr/bin/python3
+#!/usr/bin/python3
 
 import pyewf
 import pytsk3
@@ -11,9 +11,8 @@ from tenacity import retry, stop_after_attempt, wait_fixed
 import utils.terminalPrint as termPrint
 from rich.console import Console
 from rich.progress import Progress
+
 console = Console()
-
-
 
 class ExtractHiveType:
     WINDOWS = 'windows'
@@ -23,82 +22,82 @@ class ExtractHiveType:
     SYSTEM = 'system'
     SECURITY = 'security'
     ALL = 'all'
-    
 
 # Caminho para a primeira parte da imagem E01
 ewf_path = "D:\Forensics Images\Windows Forensics_ForensicVM-Dataset\\bart.E01"
 
 NOT_IN_FOLDERS = [".", ".."]
-FILENAME_NTUSER_DAT= "NTUSER.DAT"
+FILENAME_NTUSER_DAT = "NTUSER.DAT"
 
 class MainCli:
     def __init__(self, arguments):
         self.logger = loggerUtils.getLogger(__name__)
-        self.forAllWindowHive = False        
+        self.forAllWindowHive = False
 
         self._defineHiveTypesExtractOptions(arguments)
-              
-        if(arguments.image == ""):
-            raise RuntimeError(f"imagePath is not valid!")  
+
+        if arguments.image == "":
+            termPrint.printError("imagePath is not valid!")
+            raise RuntimeError("imagePath is not valid!")
 
         self.extractNTUSERDatForUsers = arguments.ntuserdat
         if arguments.all:
             self.forAllWindowHive = True
             self.extractNTUSERDatForUsers = True
-                        
+
         self.imagePath = arguments.image
         self.outputPath = arguments.output
         self._checkImagePath()
 
     def _defineHiveTypesExtractOptions(self, arguments):
         self.hive_types = [
-            ExtractHiveType.WINDOWS, 
-            ExtractHiveType.NTUSERDAT, 
-            ExtractHiveType.SAM, 
-            ExtractHiveType.SOFTWARE, 
-            ExtractHiveType.SYSTEM, 
+            ExtractHiveType.WINDOWS,
+            ExtractHiveType.NTUSERDAT,
+            ExtractHiveType.SAM,
+            ExtractHiveType.SOFTWARE,
+            ExtractHiveType.SYSTEM,
             ExtractHiveType.SECURITY,
             ExtractHiveType.ALL
         ]
-        
+
         hiveIsDefined = arguments.windows
         self.forAllWindowHive = arguments.windows
         if not arguments.windows and any(hasattr(arguments, hive) for hive in self.hive_types):
-                for hive in self.hive_types:
-                    if getattr(arguments, hive, False):
-                        setattr(self, f"extract_{hive}", True)
-                        hiveIsDefined = True
-                        
-        if(not hiveIsDefined):
+            for hive in self.hive_types:
+                if getattr(arguments, hive, False):
+                    setattr(self, f"extract_{hive}", True)
+                    hiveIsDefined = True
+
+        if not hiveIsDefined:
+            termPrint.printInfo('At least one hive extraction option must be specified (--windows, --ntuserdat, --sam, --software, --system, --security)')
             raise RuntimeError("At least one hive extraction option must be specified (--windows, --ntuserdat, --sam, --software, --system, --security)")
-    
-            
+
     def getOnlyName(self, entry):
         return entry.info.name.name.decode('utf-8')
 
     def _checkImagePath(self):
         self.logger.debug(f"[isFile] start check file: {self.imagePath}")
         self.logger.info(f"Checking if is file :{self.imagePath}")
-        if(os.path.isfile(path=self.imagePath)):
+        if os.path.isfile(path=self.imagePath):
             self.logger.info(f"Checked file: {self.imagePath}")
         else:
             self.logger.info("Check failed, path is not a file")
             raise RuntimeError("Error imagePath not contains file")
-    
+
     def _getFoldersExistsCheck(self):
         existsFolderUser = False
         existsFolderWindows = False
         directories = self.pyTskFileSystem.open_dir("/")
-        listFolderName =  map(self.getOnlyName, directories);
-        if("Users" in listFolderName):
-            existsFolderUser  = True
-        if("Windows" in listFolderName):
+        listFolderName = map(self.getOnlyName, directories)
+        if "Users" in listFolderName:
+            existsFolderUser = True
+        if "Windows" in listFolderName:
             existsFolderWindows = True
-        return  existsFolderUser, existsFolderWindows
-    
+        return existsFolderUser, existsFolderWindows
+
     def getHiveFoldersValidated(self):
         if self.forAllWindowHive:
-            hives =   {
+            hives = {
                 'SYSTEM': r'/Windows/System32/config/SYSTEM',
                 'SOFTWARE': r'/Windows/System32/config/SOFTWARE',
                 'SAM': r'/Windows/System32/config/SAM',
@@ -115,15 +114,13 @@ class MainCli:
                 hives['SAM'] = r'/Windows/System32/config/SAM'
             if hasattr(self, 'extract_security'):
                 hives['SECURITY'] = r'/Windows/System32/config/SECURITY'
-            
-            return hives;
-        
+            return hives
+
     def _extractHivesFromWindowsFolder(self):
         hivesKeyAndPaths = self.getHiveFoldersValidated()
         self.logger.debug(f"[extractHivesFromWindowsFolder] start ")
         try:
             for nameHive, path in hivesKeyAndPaths.items():
-                print(f"Extract hive NAME: {nameHive}")                
                 self._extractHiveWindows(nameHive, path)
         except Exception as e:
             self.logger.info('There was an unexpected error while trying to load the NTUSER.dat file for users')
@@ -133,79 +130,80 @@ class MainCli:
             self.logger.debug(f"[extractHivesFromWindowsFolder] end finally")
 
     def _extractHiveWindows(self, nameHive, path):
-        self.logger.info(f"Extracting hive {nameHive}...")
+        termPrint.printInfo(f"Extracting hive {nameHive}...")
         fileObject = self.pyTskFileSystem.open(path=path)
-        objectUtils = FileObjectUtils(fileObject=fileObject, outputPath= self.outputPath, prefixName=f"partition_{self.partitionAddr}");
+        objectUtils = FileObjectUtils(fileObject=fileObject, outputPath=self.outputPath, prefixName=f"partition_{self.partitionAddr}")
         self.logger.debug(f"Name: {nameHive}")
         self.logger.info(f"Name: {nameHive} found")
-        md5_digest, sha1_digest, sha256_digest =  objectUtils.fileCalculateHash()
+        md5_digest, sha1_digest, sha256_digest = objectUtils.fileCalculateHash()
         self.logger.info(f"MD5: {md5_digest}")
         self.logger.info(f"SHA-1: {sha1_digest}")
         self.logger.info(f"SHA-256: {sha256_digest}")
         objectUtils.fileExtract()
-            
-        
+        termPrint.printSuccess(f"Extracted hive {nameHive}")
+
     @retry(stop=stop_after_attempt(1), wait=wait_fixed(1))  # Retry up to 3 times, waiting 2 seconds between retries
     def _checkUserFolders(self):
         self.logger.debug(f"[checkUserFolders] start ")
         self.logger.info("Checking folders in /Users/")
-           
+        termPrint.printInfo("Checking folders in /Users/")
         try:
-            # Get user hive NTUSER.DATmap(self.getOnlyName, directoryByUser);
+            # Get user hive NTUSER.DAT
             directoryListUsers = self.pyTskFileSystem.open_dir(path="/Users/")
             for entry in directoryListUsers:
-                entryName = entry.info.name.name.decode('utf-8')          
-                if( entry.info.meta.type  == pytsk3.TSK_FS_META_TYPE_DIR and entryName not in NOT_IN_FOLDERS):    
+                entryName = entry.info.name.name.decode('utf-8')
+                if entry.info.meta.type == pytsk3.TSK_FS_META_TYPE_DIR and entryName not in NOT_IN_FOLDERS:
+                    termPrint.printInfo(f"Processing user folder: {entryName}")
                     self._listDirectoryUsersAndExtractFile(entry, entryName)
         except Exception as e:
             self.logger.info('There was an unexpected error while trying to load the NTUSER.dat file for users')
             self.logger.error("Error on check folders", e)
+            termPrint.printError("There was an unexpected error while trying to load the NTUSER.dat file for users")
             raise e
         finally:
             self.logger.debug(f"[checkUserFolders] end finally")
 
-    def _listDirectoryUsersAndExtractFile(self,  entry, entryName):
-        termPrint.printInfo("User")
-        directoryByUser =  self.pyTskFileSystem.open_dir(path=f"/Users/{entryName}")  
-        listDirectories  = map(self.getOnlyName, directoryByUser);
-        if(FILENAME_NTUSER_DAT in listDirectories):
+    def _listDirectoryUsersAndExtractFile(self, entry, entryName):        
+        directoryByUser = self.pyTskFileSystem.open_dir(path=f"/Users/{entryName}")
+        listDirectories = map(self.getOnlyName, directoryByUser)
+        if FILENAME_NTUSER_DAT in listDirectories:
+            termPrint.printInfo(f"Found NTUSER.DAT for user: {entryName}")
             self._readAndExtractNTDUSERDat(entry, entryName)
-            
+        else:
+            termPrint.printWarn(f"NTUSER.DAT not found for user: {entryName}")
+
     @retry(stop=stop_after_attempt(2), wait=wait_fixed(1))
     def _readAndExtractNTDUSERDat(self, entry, entryName):
-        fileObject =  self.pyTskFileSystem.open(f"/Users/{entryName}/{FILENAME_NTUSER_DAT}")
-        objectUtils = FileObjectUtils(fileObject, self.outputPath, entryName);
-        md5_digest, sha1_digest, sha256_digest =  objectUtils.fileCalculateHash()
+        termPrint.printInfo(f"Reading and extracting NTUSER.DAT for user: {entryName}")
+        fileObject = self.pyTskFileSystem.open(f"/Users/{entryName}/{FILENAME_NTUSER_DAT}")
+        objectUtils = FileObjectUtils(fileObject, self.outputPath, entryName)
+        md5_digest, sha1_digest, sha256_digest = objectUtils.fileCalculateHash()
         self.logger.info(f"MD5: {md5_digest}")
         self.logger.info(f"SHA-1: {sha1_digest}")
         self.logger.info(f"SHA-256: {sha256_digest}")
         objectUtils.fileExtract()
+        termPrint.printSuccess(f"Extracted NTUSER.DAT for user: {entryName}")
+
         
     def checkOptionsAndExtractFiles(self):
-        with Progress() as progress:
-            task =  progress.add_task(description="Extracting hives...")
-            self.pgExtract = progress
-            self.tkExtract = task
-            self.logger.debug("[checkOptionsAndExtractFiles] - start")
-            existsFolderUser, existsFolderWindows = self._getFoldersExistsCheck()
-            if(existsFolderUser and self.extractNTUSERDatForUsers):
-                
-                self.logger.info("Found path /Users/")
-                self.logger.debug("[checkUserFolders] found path /Users/")
-                self._checkUserFolders()
-            else:            
-                self.logger.info("Not found path /Users/")
-                self.logger.debug("[checkUserFolders] Not found path /Users/")
+        self.logger.debug("[checkOptionsAndExtractFiles] - start")
+        existsFolderUser, existsFolderWindows = self._getFoldersExistsCheck()
+        if(existsFolderUser and self.extractNTUSERDatForUsers):
+            self.logger.info("Found path /Users/")
+            self.logger.debug("[checkUserFolders] found path /Users/")
+            self._checkUserFolders()
+        else:            
+            self.logger.info("Not found path /Users/")
+            self.logger.debug("[checkUserFolders] Not found path /Users/")
 
-            if(existsFolderWindows):
-                self.logger.info("Found path /Windows/")
-                self.logger.debug("[checkUserFolders] found path /Windows/")
-                self._extractHivesFromWindowsFolder()
-                print("Exists folder Windows")
-            else:            
-                self.logger.info("Not found path /Windows/")
+        if(existsFolderWindows):
+            self.logger.info("Found path /Windows/")
+            self.logger.debug("[checkUserFolders] found path /Windows/")
+            self._extractHivesFromWindowsFolder()
+        else:            
+            self.logger.info("Not found path /Windows/")
 
-            self.logger.debug("[checkOptionsAndExtractFiles] - end")
+        self.logger.debug("[checkOptionsAndExtractFiles] - end")
 
     def run(self):
         try:
