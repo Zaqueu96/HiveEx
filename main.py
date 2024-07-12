@@ -38,13 +38,17 @@ class MainCli:
     def __init__(self, arguments):
         self.logger = loggerUtils.getLogger(__name__)
         self.forAllWindowHive = False
+        self.containsSpecificFile = (arguments.specific_file != None and arguments.specific_file != "")
         
         if(not arguments.debug):
             sys.stderr = DevNull()
 
-
-        self._defineHiveTypesExtractOptions(arguments)
-
+        if not self.containsSpecificFile:
+            self._defineHiveTypesExtractOptions(arguments)
+        else:            
+            termPrint.printWarn(f"Skip flags (--windows, --ntuserdat, --sam, --software, --system, --security) because flag --specific-file")
+            self.specificPathFile = arguments.specific_file
+            
         if arguments.image == "":
             termPrint.printError("imagePath is not valid!")
             raise RuntimeError("imagePath is not valid!")
@@ -56,6 +60,7 @@ class MainCli:
 
         self.imagePath = arguments.image
         self.outputPath = arguments.output
+        
         self._checkImagePath()
 
     def _defineHiveTypesExtractOptions(self, arguments):
@@ -196,6 +201,10 @@ class MainCli:
         
     def checkOptionsAndExtractFiles(self):
         self.logger.debug("[checkOptionsAndExtractFiles] - start")
+        if(self.containsSpecificFile):
+            self.logger.debug("[checkOptionsAndExtractFiles] - containsSpecificFile init")
+            self.extractSpecificFile(self.specificPathFile)
+            
         existsFolderUser, existsFolderWindows = self._getFoldersExistsCheck()
         if(existsFolderUser and self.extractNTUSERDatForUsers):
             self.logger.info("Found path /Users/")
@@ -211,9 +220,54 @@ class MainCli:
             self._extractHivesFromWindowsFolder()
         else:            
             self.logger.info("Not found path /Windows/")
-
         self.logger.debug("[checkOptionsAndExtractFiles] - end")
-
+    
+    def extractSpecificFile(self, path_template):
+        self.logger.debug(f"Partition #{self.partitionAddr}: [extractSpecificFile] start - searching in {path_template}")
+        self.logger.info(f"Partition #{self.partitionAddr}: Searching in {path_template}")
+        termPrint.printInfo(f"Partition #{self.partitionAddr}: Searching in {path_template}")
+        try:
+            if "[user]" not in path_template:
+                try:
+                    fileObject = self.pyTskFileSystem.open(path_template)
+                    objectUtils = FileObjectUtils(fileObject, self.outputPath)
+                    termPrint.printInfo(f"Partition #{self.partitionAddr}: File found in {path_template}")
+                    self.logger.info(f"Partition #{self.partitionAddr}: File found in {path_template}")
+                    objectUtils.fileExtract()
+                    termPrint.printSuccess(f"Partition #{self.partitionAddr}: Extracted {path_template}")
+                    return fileObject
+                except IOError:
+                    termPrint.printWarn(f"Partition #{self.partitionAddr}: File not found in {path_template}")
+                    self.logger.info(f"Partition #{self.partitionAddr}: File not found in {path_template}")
+            else:
+                directoryListUsers = self.pyTskFileSystem.open_dir(path="/Users/")
+                users = [entry.info.name.name.decode('utf-8') for entry in directoryListUsers
+                     if entry.info.meta.type == pytsk3.TSK_FS_META_TYPE_DIR and entry.info.name.name.decode('utf-8') not in NOT_IN_FOLDERS]
+                for user in users:
+                    user_specific_path = path_template.replace("[user]", user)
+                    try:
+                        fileObject = self.pyTskFileSystem.open(user_specific_path)
+                        objectUtils = FileObjectUtils(fileObject, self.outputPath)
+                        termPrint.printInfo(f"Partition #{self.partitionAddr}: File found in {path_template}")
+                        self.logger.info(f"Partition #{self.partitionAddr}: File found in {path_template}")
+                        objectUtils.fileExtract()
+                        termPrint.printSuccess(f"Partition #{self.partitionAddr}: Extracted {path_template}")
+                    except Exception as e:
+                        if "path not found" in str(e):
+                            termPrint.printWarn(f"Partition #{self.partitionAddr}: File not found in {user_specific_path}")
+                            self.logger.info(f"Partition #{self.partitionAddr}: File not found in {user_specific_path}")
+                        else:
+                            raise e
+        except Exception as e:
+            if "path not found" in str(e) and "/Users/" in str(e):
+                    termPrint.printWarn(f"Partition #{self.partitionAddr}: Not found folder /Users/")
+            else:
+                self.logger.info('There was an unexpected error while trying to search for the file')
+                self.logger.error("Error during file search", e)
+                termPrint.printError(f"Partition #{self.partitionAddr}: There was an unexpected error while trying to search for the file")
+        finally:
+            self.logger.debug(f"Partition #{self.partitionAddr}: [extractSpecificFile] end finally")
+            
     def run(self):
         try:
             ewf_path = self.imagePath
@@ -238,15 +292,12 @@ class MainCli:
             img_info = EWFImgInfo(ewf_handle)
 
             try:
-                partition_table = pytsk3.Volume_Info(img_info)
-                
+                partition_table = pytsk3.Volume_Info(img_info)                
                 termPrint.printPartitionsTable(partitionTable=partition_table)
                 with Progress() as progress:
                     task = progress.add_task("[cyan]Processing partitions...", total=partition_table.info.part_count)
                     for partition in partition_table:
                         progress.update(task, advance=1, description=f"[cyan]Processing partition #{partition.addr}...")
-                        #console.log(f"Process partition #{partition.addr}")
-                        #termPrint.printInfo(F"Process partition #{partition.addr}")
                         self.logger.info(f"Partição: {partition.addr}, Offset: {partition.start * 512}, Tamanho: {partition.len * 512}, DEC: {partition.desc}")
                         try:
                            filesystem = pytsk3.FS_Info(img_info, offset=partition.start * 512)
@@ -291,8 +342,10 @@ parser.add_argument('--software', '-sfw', action='store_true', help='Extract hiv
 parser.add_argument('--system', '-sys', action='store_true', help='Extract hive SYSTEM')
 parser.add_argument('--all', '-a', action='store_true', help='Extract all hives (NTUSER.DAT, SAM, SYSTEM, SOFTWARE, SECURITY)')
 parser.add_argument('--debug', '-d', action='store_true', help='Show errors on console')
+parser.add_argument('--specific-file', type=str, help='For extract specific file ex: /Users/[user]/Downloads/ff.pdf'
+                    +' (foreach in users and replace [user]),\r\n /Windows/System32/dd.exe')
 
 args = parser.parse_args()
-print(f" Windows: {args.windows}")
+print(args)
 mainCli = MainCli(arguments=args)
 mainCli.run()
