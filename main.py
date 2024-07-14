@@ -12,7 +12,7 @@ import utils.terminalPrint as termPrint
 from rich.console import Console
 from rich.progress import Progress
 import sys
-
+import os
 console = Console()
 
 class DevNull:
@@ -40,6 +40,12 @@ class MainCli:
         self.forAllWindowHive = False
         self.containsSpecificFile = (arguments.specific_file != None and arguments.specific_file != "")
         
+        self.imagePath = arguments.image
+        self.outputPath = arguments.output
+        
+        self._checkImagePath()
+        self._checkOutputPathPermition()
+        
         if(not arguments.debug):
             sys.stderr = DevNull()
 
@@ -58,10 +64,18 @@ class MainCli:
             self.forAllWindowHive = True
             self.extractNTUSERDatForUsers = True
 
-        self.imagePath = arguments.image
-        self.outputPath = arguments.output
+
+    
+    def _checkOutputPathPermition(self):
+        try:            
+            outputFileVerify = os.path.join(self.outputPath, "verify.txt")
+            with open(outputFileVerify, 'w') as file:
+                 file.write("permission check")
+            os.remove(outputFileVerify)
+        except IOError:
+            termPrint.printError(f"Output path permission denied: {self.outputPath}")
+            sys.exit()
         
-        self._checkImagePath()
 
     def _defineHiveTypesExtractOptions(self, arguments):
         self.hive_types = [
@@ -84,7 +98,7 @@ class MainCli:
 
         if not hiveIsDefined:
             termPrint.printError('At least one hive extraction option must be specified (--windows, --ntuserdat, --sam, --software, --system, --security)')
-            raise RuntimeError("At least one hive extraction option must be specified (--windows, --ntuserdat, --sam, --software, --system, --security)")
+            sys.exit()
 
     def getOnlyName(self, entry):
         return entry.info.name.name.decode('utf-8')
@@ -271,12 +285,9 @@ class MainCli:
     def run(self):
         try:
             ewf_path = self.imagePath
-            # Abrir a imagem E01 (segmentada)
             filenames = pyewf.glob(ewf_path)
             ewf_handle = pyewf.handle()
             ewf_handle.open(filenames)
-
-            # Criação de um arquivo virtual a partir do handle EWF
             class EWFImgInfo(pytsk3.Img_Info):
                 def __init__(self, ewf_handle):
                     self._ewf_handle = ewf_handle
@@ -302,7 +313,6 @@ class MainCli:
                         try:
                            filesystem = pytsk3.FS_Info(img_info, offset=partition.start * 512)
                            if pytsk3.TSK_FS_TYPE_NTFS == filesystem.info.ftype:
-                                #termPrint.printInfo(f"NTFS filesystem found")
                                 self.partitionAddr = partition.addr
                                 self.pyTskFileSystem = filesystem
                                 self.checkOptionsAndExtractFiles()
@@ -313,12 +323,9 @@ class MainCli:
                             self.logger.error(f"Error on running {partition.addr}: {e}")
             except IOError as e:
                self.logger.error(f"Error on access partitions table {e}")
-                #print(f"Erro ao acessar a tabela de partições: {e}")
             except Exception as e:
                 self.logger.error(f"Error unexpected. ", e)
-                #print(f"Erro inesperado ao acessar a tabela de partições: {e}")
-
-            # Fechar o handle
+                
             ewf_handle.close()
 
         except IOError as e:

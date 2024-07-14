@@ -2,7 +2,7 @@ import hashlib
 import os
 import utils.loggerUtils as loggerUtils
 from tenacity import retry, stop_after_attempt, wait_fixed
-
+from utils import terminalPrint
 class FileObjectUtils:
     def __init__(self, fileObject, outputPath, prefixName=""):
         self.fileObject = fileObject
@@ -38,6 +38,7 @@ class FileObjectUtils:
             return md5_digest, sha1_digest, sha256_digest
         except Exception as e:
             self.logger.error("[fileCalculateHash] error", exc_info=True)  
+            terminalPrint.printError(f"Error on extract  message: {e.message}")
             raise RuntimeError(f"Unexpected error while trying to generate hashes: {e}")
     
     def _getOutputFormated(self):
@@ -61,6 +62,7 @@ class FileObjectUtils:
                 
             self.logger.info(f"[fileExtract] end outputPath: {self.outputPath}")
         except Exception as e:
+            term
             self.logger.error("[fileExtract] error", exc_info=True)  
             raise RuntimeError(f"Unexpected error while trying to extract: {e}")
         
