@@ -3,3 +3,5 @@
 *SAM*
 *SECURITY*
 *SYSTEM*
+*.log*
+__pycache__

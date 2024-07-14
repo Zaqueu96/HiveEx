@@ -8,6 +8,7 @@ HiveEx is a Python-based tool designed for extracting primary hives from Windows
 - `tenacity` library
 - `rich` library
 - `argparse` library
+- `blessed` library
 
 Additionally, the tool requires the `libewf` library. Ensure you have this installed on your system.
 
