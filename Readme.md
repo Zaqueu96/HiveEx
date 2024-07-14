@@ -26,7 +26,7 @@ sudo apt-get install libewf-dev
 ```
 ## Usage
 ```bash
-python hive_extractor.py --image <path_to_image> --output <output_folder> [options]
+python .\\src\\main\\main.py --image <path_to_image> --output <output_folder> [options]
 ```
 ## Options
 -  **--image**, -img (required): Location of the **E01 image**.
@@ -43,11 +43,11 @@ python hive_extractor.py --image <path_to_image> --output <output_folder> [optio
 ## Example
 Extract all hives from an E01 image:
 ```bash
-python main.py --image D:\\bart.E01 --output ./output --all
+python .\\src\\main\\main.py --image D:\\bart.E01 --output ./output --all
 ```
 Extract a specific file for each user:
 ```bash
-python main.py --image D:\\bart.E01 --output ./output --specific-file /Users/[user]/Documents/important.docx
+python .\\src\\main\\main.py --image D:\\bart.E01 --output ./output --specific-file /Users/[user]/Documents/important.docx
 ```
 
 ## License

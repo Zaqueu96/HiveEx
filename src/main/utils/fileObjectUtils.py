@@ -62,7 +62,6 @@ class FileObjectUtils:
                 
             self.logger.info(f"[fileExtract] end outputPath: {self.outputPath}")
         except Exception as e:
-            term
             self.logger.error("[fileExtract] error", exc_info=True)  
             raise RuntimeError(f"Unexpected error while trying to extract: {e}")
         

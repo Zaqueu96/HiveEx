@@ -309,7 +309,6 @@ class MainCli:
                     task = progress.add_task("[cyan]Processing partitions...", total=partition_table.info.part_count)
                     for partition in partition_table:
                         progress.update(task, advance=1, description=f"[cyan]Processing partition #{partition.addr}...")
-                        self.logger.info(f"Partição: {partition.addr}, Offset: {partition.start * 512}, Tamanho: {partition.len * 512}, DEC: {partition.desc}")
                         try:
                            filesystem = pytsk3.FS_Info(img_info, offset=partition.start * 512)
                            if pytsk3.TSK_FS_TYPE_NTFS == filesystem.info.ftype:
@@ -352,7 +351,10 @@ parser.add_argument('--debug', '-d', action='store_true', help='Show errors on c
 parser.add_argument('--specific-file', type=str, help='For extract specific file ex: /Users/[user]/Downloads/ff.pdf'
                     +' (foreach in users and replace [user]),\r\n /Windows/System32/dd.exe')
 
-args = parser.parse_args()
-print(args)
-mainCli = MainCli(arguments=args)
-mainCli.run()
+def mainInit():
+    args = parser.parse_args()
+    mainCli = MainCli(arguments=args)
+    mainCli.run()
+    
+if __name__ == "__main__":
+    mainInit()
