@@ -67,6 +67,34 @@ To create a single executable:
 pyinstaller --onefile src/main/main.py
 ```
 
+## Generated Executable
+
+The executable was generated using PyInstaller and is located in the `dist` folder. You can find it here:
+
+- **Windows:** [hiveEx.1.0.exe](./dist/hiveEx.1.0.exe)
+
+## How to Run
+
+To run the program:
+
+1. **Windows:**
+   - Download the `hiveEx.1.0.exe` file.
+   - Double-click to launch or execute via the command line.
+
+## Requirements
+
+Make sure your system meets the following requirements to ensure proper functionality:
+
+- [List any specific requirements or dependencies, such as Python version X.X, etc.]
+
+## Support and Contributions
+
+If you encounter any issues or have suggestions to improve this project, please [get in touch / open an issue / submit a pull request].
+
+---
+
+**Note:** If you experience compatibility issues or if the executable does not work as expected, ensure all dependencies are correctly installed on your system.
+
 ## License
 This project is licensed under the MIT License.
 
