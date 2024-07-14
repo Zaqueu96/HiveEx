@@ -1,3 +1,8 @@
+<p align="center">
+  <img src="./images/readme_image.png" alt="Readme image center" width="250">
+  <h1 style="text-align:center">HiveEx</h1>
+</p>
+
 HiveEx is a Python-based tool designed for extracting primary hives from Windows images. The tool supports extraction of various hives such as `SAM`, `SYSTEM`, `SOFTWARE`, `SECURITY`, and `NTUSER.DAT` files from E01 images.
 
 ## Requirements
@@ -48,6 +53,18 @@ python .\\src\\main\\main.py --image D:\\bart.E01 --output ./output --all
 Extract a specific file for each user:
 ```bash
 python .\\src\\main\\main.py --image D:\\bart.E01 --output ./output --specific-file /Users/[user]/Documents/important.docx
+```
+
+### Creating an Executable with PyInstaller
+
+To create a standalone executable from your Python script, you can use PyInstaller. Make sure all necessary dependencies are installed before proceeding.
+
+#### PyInstaller Commands
+
+To create a single executable:
+
+```bash
+pyinstaller --onefile src/main/main.py
 ```
 
 ## License

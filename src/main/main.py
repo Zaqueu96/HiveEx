@@ -204,7 +204,11 @@ class MainCli:
     def _readAndExtractNTDUSERDat(self, entry, entryName):
         termPrint.printInfo(f"Reading and extracting NTUSER.DAT for user: {entryName}")
         fileObject = self.pyTskFileSystem.open(f"/Users/{entryName}/{FILENAME_NTUSER_DAT}")
-        objectUtils = FileObjectUtils(fileObject, self.outputPath, entryName)
+        objectUtils = FileObjectUtils(
+            fileObject, 
+            self.outputPath, 
+            f"partition_{self.partitionAddr}_{entryName}"
+        )
         md5_digest, sha1_digest, sha256_digest = objectUtils.fileCalculateHash()
         self.logger.info(f"MD5: {md5_digest}")
         self.logger.info(f"SHA-1: {sha1_digest}")
