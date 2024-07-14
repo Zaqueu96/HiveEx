@@ -1,66 +1,54 @@
-# Forensic Analysis Script
+HiveEx is a Python-based tool designed for extracting primary hives from Windows images. The tool supports extraction of various hives such as `SAM`, `SYSTEM`, `SOFTWARE`, `SECURITY`, and `NTUSER.DAT` files from E01 images.
 
-Este script Python é usado para analisar imagens forenses no formato E01, extraindo informações específicas dos arquivos NTUSER.DAT dos usuários no sistema Windows.
+## Requirements
 
-## Tecnologias Usadas
+- Python 3.x
+- `pyewf` library
+- `pytsk3` library
+- `tenacity` library
+- `rich` library
+- `argparse` library
 
-- **Python**: Linguagem de programação principal utilizada no script.
-- **pyewf**: Biblioteca usada para ler e processar imagens EWF (Expert Witness Format).
-- **pytsk3**: Biblioteca usada para interagir com o sistema de arquivos na imagem EWF.
-- **utils.fileObjectUtils.FileObjectUtils**: Uma utilidade personalizada para manipulação de arquivos e cálculo de hashes.
+Additionally, the tool requires the `libewf` library. Ensure you have this installed on your system.
 
-## Propósito
+## Installation
 
-O objetivo deste script é:
+Before using HiveEx, ensure you have the necessary libraries installed:
 
-1. Abrir e ler uma imagem E01 segmentada.
-2. Acessar a tabela de partições da imagem.
-3. Verificar partições que contêm um sistema de arquivos NTFS.
-4. Navegar pelo diretório `/Users/` e encontrar os arquivos NTUSER.DAT de cada usuário.
-5. Calcular os hashes MD5, SHA-1 e SHA-256 para cada NTUSER.DAT encontrado.
-6. Extrair o arquivo NTUSER.DAT para um diretório específico.
+```bash
+pip install pyewf pytsk3 tenacity rich
+```
+Also, make sure that libewf is installed on your system. You can install it using your system's package manager. For example, on Ubuntu:
 
-## Instruções
+```bash
+sudo apt-get install libewf-dev
+```
+## Usage
+```bash
+python hive_extractor.py --image <path_to_image> --output <output_folder> [options]
+```
+## Options
+-  **--image**, -img (required): Location of the **E01 image**.
+-  **--output**, -op: Folder to extract files (default is current directory).
+-  **--windows**, -ws: Extract Windows hives (**SAM, SYSTEM, SOFTWARE, SECURITY**).
+-  **--ntuserdat**, -n: Extract Windows user hives (**NTUSER.DAT**).
+-  **--sam**, -sm: Extract **SAM** hive.
+-  **--software**, -sfw: Extract **SOFTWARE** hive.
+-  **--system**, -sys: Extract **SYSTEM** hive.
+-  **--all**, -a: Extract all hives (**NTUSER.DAT, SAM, SYSTEM, SOFTWARE, SECURITY**).
+-  **--debug**, -d: Show errors on the console.
+-  **--specific-file**: Extract a specific file. Use [user] as a placeholder for usernames (e.g., **/Users/[user]/Downloads/ff.pdf**).
 
-### Requisitos
+## Example
+Extract all hives from an E01 image:
+```bash
+python main.py --image D:\\bart.E01 --output ./output --all
+```
+Extract a specific file for each user:
+```bash
+python main.py --image D:\\bart.E01 --output ./output --specific-file /Users/[user]/Documents/important.docx
+```
 
-Certifique-se de ter Python instalado e as seguintes bibliotecas:
+## License
+This project is licensed under the MIT License.
 
-- pyewf
-- pytsk3
-- utils (um módulo personalizado)
-
-### Uso
-
-1. Clone ou faça download deste repositório.
-2. Edite o caminho para a imagem E01 na variável `ewf_path` no início do script.
-3. Execute o script:
-
-    ```bash
-    python maiin.py
-    ```
-
-O script irá exibir informações sobre cada partição e calcular os hashes dos arquivos NTUSER.DAT encontrados.
-
-### Funções Principais
-
-- **getOnlyName(entry)**: Retorna o nome do arquivo ou diretório a partir de uma entrada do sistema de arquivos.
-- **checkFolders(filesystem)**: Navega pelo diretório `/Users/` e processa arquivos NTUSER.DAT.
-- **EWFImgInfo**: Classe personalizada para criar uma interface de imagem virtual a partir do handle EWF.
-
-### Erros Tratados
-
-O script trata diversos tipos de exceções para garantir uma execução suave, incluindo:
-
-- **IOError**: Erros de entrada/saída ao acessar a imagem E01 ou partições.
-- **pyewf.error**: Erros específicos da biblioteca pyewf.
-- **Exception**: Qualquer outro erro inesperado.
-
-### Exemplo de Saída
-
-```plaintext
-Partição: 1, Offset: 1048576, Tamanho: 2147483648, DEC: NTFS
-Nome: user1, Tamanho: 5242880
-MD5: d41d8cd98f00b204e9800998ecf8427e
-SHA-1: da39a3ee5e6b4b0d3255bfef95601890afd80709
-SHA-256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
