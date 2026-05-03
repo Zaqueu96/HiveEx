@@ -2,6 +2,7 @@
 Module for handling EWF image and filesystem access.
 """
 
+import os
 import pyewf
 import pytsk3
 from utils import terminalPrint
@@ -32,8 +33,11 @@ class ImageHandler:
             pyewf.error: If EWF library error occurs
         """
         try:
-            self.logger.info(f"Opening image: {self.image_path}")
-            filenames = pyewf.glob(self.image_path)
+            # Normalize path to handle spaces and mixed slashes correctly
+            normalized_path = os.path.normpath(os.path.abspath(self.image_path))
+            self.logger.info(f"Opening image: {normalized_path}")
+            
+            filenames = pyewf.glob(normalized_path)
             self.ewf_handle = pyewf.handle()
             self.ewf_handle.open(filenames)
             self.img_info = EWFImgInfo(self.ewf_handle)

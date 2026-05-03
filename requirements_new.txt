@@ -1,0 +1,6 @@
+pyewf>=20181212
+pytsk3>=20211111
+PyYAML>=6.0
+tenacity>=8.2.0
+rich>=13.0.0
+PySimpleGUI>=4.60.0
