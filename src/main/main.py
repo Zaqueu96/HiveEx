@@ -260,15 +260,11 @@ def validate_arguments(args) -> None:
 
 
 def main():
-    """Main entry point for the application."""
-    # If no arguments provided, launch GUI
+    """Main entry point for the application (CLI only)."""
+    # Show help if no arguments provided
     if len(sys.argv) == 1:
-        try:
-            from gui import main as gui_main
-            gui_main()
-        except ImportError:
-            parser = create_parser()
-            parser.print_help()
+        parser = create_parser()
+        parser.print_help()
         return
     
     parser = create_parser()
