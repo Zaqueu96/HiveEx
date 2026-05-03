@@ -29,7 +29,8 @@ class ExtractHiveType:
     ALL = 'all'
 
 # Caminho para a primeira parte da imagem E01
-ewf_path = "D:\Forensics Images\Windows Forensics_ForensicVM-Dataset\\bart.E01"
+#ewf_path = "D:\Forensics Images\Windows Forensics_ForensicVM-Dataset\\bart.E01"
+ewf_path = "D:\\Forensics Images\\Digital Corpora\\2018 Lone Wolf\\LoneWolf.E01"
 
 NOT_IN_FOLDERS = [".", ".."]
 FILENAME_NTUSER_DAT = "NTUSER.DAT"
