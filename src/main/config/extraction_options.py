@@ -180,7 +180,8 @@ class ExtractionOptions:
             bool: True if any Windows hive should be extracted
         """
         return (self.extract_all_windows or self.extract_system or 
-                self.extract_software or self.extract_sam or self.extract_security)
+                self.extract_software or self.extract_sam or self.extract_security or
+                self.has_config_based_extraction())
     
     def should_extract_specific_file(self):
         """
