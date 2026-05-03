@@ -34,11 +34,16 @@ class ExtractionOptions:
             RuntimeError: If no extraction option is specified
         """
         # Process config files if provided
-        if hasattr(args, 'config') and args.config:
+        if hasattr(args, 'config') and args.config and len(args.config) > 0:
+            self.logger.info(f"Processing {len(args.config)} configuration(s): {args.config}")
             self._process_configs(args.config)
             # If configs were loaded successfully, we're done
             if self.hive_configs:
+                terminalPrint.printSuccess(f"Loaded {len(self.hive_configs)} hive configuration(s)")
                 return
+            # If configs failed to load, raise error
+            else:
+                raise RuntimeError('Failed to load any hive configurations')
         
         self.extract_ntuser_dat = args.ntuserdat
         
@@ -46,40 +51,64 @@ class ExtractionOptions:
             self.extract_all_windows = True
             self.extract_ntuser_dat = True
             self.logger.info("All hives will be extracted")
+            terminalPrint.printSuccess("Extraction mode: All hives (SAM, SYSTEM, SOFTWARE, SECURITY, NTUSER.DAT)")
             return
         
         if args.specific_file:
             self.extract_specific_file = True
             self.specific_file_path = args.specific_file
             self.logger.info(f"Specific file extraction enabled: {args.specific_file}")
-            terminalPrint.printWarn("Skipping hive type flags (--windows, --ntuserdat, --sam, --software, --system, --security) because --specific-file is set")
+            terminalPrint.printSuccess(f"Extraction mode: Specific file ({args.specific_file})")
             return
         
         if args.windows:
             self.extract_all_windows = True
             self.logger.info("All Windows hives will be extracted")
+            terminalPrint.printSuccess("Extraction mode: All Windows hives (SAM, SYSTEM, SOFTWARE, SECURITY)")
         else:
             hive_specified = False
+            extraction_modes = []
             
             if args.system:
                 self.extract_system = True
                 hive_specified = True
+                extraction_modes.append("SYSTEM")
             
             if args.software:
                 self.extract_software = True
                 hive_specified = True
+                extraction_modes.append("SOFTWARE")
             
             if args.sam:
                 self.extract_sam = True
                 hive_specified = True
+                extraction_modes.append("SAM")
             
             if args.security:
                 self.extract_security = True
                 hive_specified = True
+                extraction_modes.append("SECURITY")
+            
+            if self.extract_ntuser_dat:
+                extraction_modes.append("NTUSER.DAT")
             
             if not hive_specified and not self.extract_ntuser_dat:
-                terminalPrint.printError('At least one hive extraction option must be specified (--windows, --ntuserdat, --sam, --software, --system, --security)')
+                terminalPrint.printError('At least one hive extraction option must be specified')
+                terminalPrint.printInfo('Available options:')
+                print('  --windows (-ws)        : Extract all Windows hives')
+                print('  --sam (-sm)            : Extract SAM hive')
+                print('  --system (-sys)        : Extract SYSTEM hive')
+                print('  --software (-sfw)      : Extract SOFTWARE hive')
+                print('  --security (-sec)      : Extract SECURITY hive')
+                print('  --ntuserdat (-n)       : Extract NTUSER.DAT from all users')
+                print('  --config (-cfg)        : Extract hive from configuration file')
+                print('  --all (-a)             : Extract all hives')
+                print('  --specific-file        : Extract a specific file from the image')
                 raise RuntimeError('No hive extraction option specified')
+            
+            if extraction_modes:
+                terminalPrint.printSuccess(f"Extraction mode: {', '.join(extraction_modes)}")
+                self.logger.info(f"Extraction modes selected: {extraction_modes}")
     
     def _process_configs(self, config_list):
         """

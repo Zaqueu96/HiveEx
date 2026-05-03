@@ -97,9 +97,9 @@ def create_parser():
     
     parser.add_argument(
         '--image', '-img',
-        required=True,
+        required=False,
         type=str,
-        help='Path to the E01 image file'
+        help='Path to the E01 image file (required for extraction operations)'
     )
     
     parser.add_argument(
@@ -179,12 +179,62 @@ def create_parser():
     )
     
     parser.add_argument(
+        '-v', '--verbose',
+        action='store_true',
+        help='Show verbose output (use with --list-configs for detailed info)'
+    )
+    
+    parser.add_argument(
         '--configs-path',
         type=str,
         help='Custom path to hive configuration directory (overrides default and HIVEX_CONFIGS_PATH env variable)'
     )
     
     return parser
+
+
+def is_extraction_operation(args) -> bool:
+    """
+    Check if the arguments specify an extraction operation.
+    
+    Args:
+        args: argparse arguments object
+    
+    Returns:
+        bool: True if any extraction flag is set
+    """
+    extraction_flags = [
+        args.windows,
+        args.sam,
+        args.software,
+        args.system,
+        args.security,
+        args.ntuserdat,
+        args.all,
+        args.specific_file is not None,
+        args.config is not None
+    ]
+    return any(extraction_flags)
+
+
+def validate_arguments(args) -> None:
+    """
+    Validate argument combinations.
+    
+    Args:
+        args: argparse arguments object
+    
+    Raises:
+        RuntimeError: If argument combination is invalid
+    """
+    # Check if extraction operation requires image
+    if is_extraction_operation(args):
+        if not args.image:
+            raise RuntimeError(
+                'Image file (--image or -img) is required for extraction operations.\n'
+                'Use --image <path> to specify the E01 image file.\n'
+                'Example: python main.py --image image.E01 --sam'
+            )
 
 
 def main():
@@ -200,10 +250,18 @@ def main():
             terminalPrint.printError(f'Invalid configs path: {e}')
             sys.exit(1)
     
-    # Handle --list-configs flag
+    # Handle --list-configs flag (does not require image)
     if args.list_configs:
-        ConfigHandler.list_available_configs()
+        verbose = getattr(args, 'verbose', False)
+        ConfigHandler.list_available_configs(verbose=verbose)
         sys.exit(0)
+    
+    # Validate arguments for extraction operations
+    try:
+        validate_arguments(args)
+    except RuntimeError as e:
+        terminalPrint.printError(str(e))
+        sys.exit(1)
     
     try:
         cli = HiveExCLI(arguments=args)

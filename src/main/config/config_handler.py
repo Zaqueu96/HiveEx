@@ -99,17 +99,58 @@ class ConfigHandler:
         return list(configs.keys())
     
     @staticmethod
-    def list_available_configs() -> None:
-        """Display all available hive configurations."""
-        configs = ConfigHandler.get_available_configs()
+    def list_available_configs(verbose: bool = False) -> None:
+        """
+        Display all available hive configurations with details.
         
-        if not configs:
+        Args:
+            verbose: If True, show complete information including author and dates
+        """
+        configs_dict = HivesConfigLoader.load_all_configs()
+        
+        if not configs_dict:
             terminalPrint.printWarn('No hive configurations found')
             return
         
-        terminalPrint.printInfo('Available hive configurations:')
-        for config_name in sorted(configs):
-            print(f'  - {config_name}')
+        if verbose:
+            # Detailed view - list format
+            terminalPrint.printInfo('Available hive configurations (detailed):')
+            print()
+            for idx, config_name in enumerate(sorted(configs_dict.keys()), 1):
+                config = configs_dict[config_name]
+                name = config.get('name', config_name)
+                path = config.get('path', 'N/A')
+                description = config.get('description', 'No description')
+                author = config.get('author', 'Unknown')
+                created_at = config.get('created_at', 'Unknown')
+                updated_at = config.get('updated_at', 'Unknown')
+                
+                print(f'  [{idx}] {name}')
+                print(f'      Path:       {path}')
+                print(f'      Description: {description}')
+                print(f'      Author:     {author}')
+                print(f'      Created:    {created_at}')
+                print(f'      Updated:    {updated_at}')
+                print()
+        else:
+            # Compact table view using Rich
+            table = terminalPrint.getTablePrint('Available Hive Configurations')
+            table.add_column('Name', style='cyan', no_wrap=True)
+            table.add_column('Path', style='magenta')
+            table.add_column('Description', style='green')
+            
+            for config_name in sorted(configs_dict.keys()):
+                config = configs_dict[config_name]
+                name = config.get('name', config_name)
+                path = config.get('path', 'N/A')
+                description = config.get('description', 'No description')
+                
+                table.add_row(name, path, description)
+            
+            terminalPrint.console.print(table)
+            print(f'  Total: {len(configs_dict)} configuration(s) available')
+            print('  Use --list-configs -v for detailed information')
+            print()
 
 
 __all__ = ['ConfigHandler']
