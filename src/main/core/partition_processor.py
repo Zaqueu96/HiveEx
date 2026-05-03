@@ -3,12 +3,16 @@ Module for managing partition processing and extraction.
 """
 
 import pytsk3
+import sys
+import os
+
+# Add parent directory to path to allow imports from sibling packages
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from utils import terminalPrint
-import utils.loggerUtils as loggerUtils
-from hive_types import HivePath
-from hive_extractor import HiveExtractor
-from user_hive_extractor import UserHiveExtractor
-from specific_file_extractor import SpecificFileExtractor
+from utils import loggerUtils
+from .hive_types import HivePath
+from extractors import HiveExtractor, UserHiveExtractor, SpecificFileExtractor
 
 
 class PartitionProcessor:

@@ -6,8 +6,8 @@ import pytsk3
 from tenacity import retry, stop_after_attempt, wait_fixed
 from utils.fileObjectUtils import FileObjectUtils
 from utils import terminalPrint
-import utils.loggerUtils as loggerUtils
-from hive_types import HivePath
+from utils import loggerUtils
+from core import HivePath
 
 
 class UserHiveExtractor:

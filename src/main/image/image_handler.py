@@ -5,7 +5,7 @@ Module for handling EWF image and filesystem access.
 import pyewf
 import pytsk3
 from utils import terminalPrint
-import utils.loggerUtils as loggerUtils
+from utils import loggerUtils
 
 
 class ImageHandler:

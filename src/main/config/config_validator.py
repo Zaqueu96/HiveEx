@@ -5,7 +5,7 @@ Module for validating file paths and permissions.
 import os
 import sys
 from utils import terminalPrint
-import utils.loggerUtils as loggerUtils
+from utils import loggerUtils
 
 
 class ConfigValidator:

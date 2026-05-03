@@ -4,8 +4,8 @@ Module for extracting specific files from the image.
 
 from utils.fileObjectUtils import FileObjectUtils
 from utils import terminalPrint
-import utils.loggerUtils as loggerUtils
-from hive_types import HivePath
+from utils import loggerUtils
+from core import HivePath
 import pytsk3
 
 

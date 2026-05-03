@@ -14,6 +14,10 @@ Atue como um desenvolvedor senior especialista em Python, com experiencia em des
 - Nao tem a necessidade de incluir testes unitarios, mas o codigo deve ser escrito de forma a facilitar a adicao de testes no futuro.
 - Cada classe deve ser em um unico arquivo, e o nome do arquivo deve ser o mesmo da classe.
 - Utilize padroes SOLID, KISS e DRY para garantir a qualidade do codigo.
+- Faca somente o que foi solicitado.
+- Nao crie arquivos ou pastas desnecessarias, e nao escreva codigo que nao foi solicitado.
+- Nao crie GUIDES ou DOCUMENTACAO, apenas o codigo necessario para a extracao de hives.
+- Nao crie arquivos como o nome refactored ou outro tipo para arquivos novos. O codigo deve ser escrito diretamente nos arquivos principais, seguindo a estrutura do projeto.
 
 ### Funcionalidades
 - (Nova) deve ter um pasta com o nome hives_configs, onde serao armazenados arquivos de configuracao para a extracao de cada hives, dentro desta pasta tera um _init_.py. Esse arquivo sera um load para as configuracoes das hivees presentes na pasta, e tera uma funcao para carregar as configuracoes de cada hive, e retornar um dicionario com as configuracoes de cada hive, cada sera escrita em yaml.

@@ -1,16 +1,32 @@
 """
 HiveEx - Hive extraction tool from forensic images.
 
-Modules:
-    - config_validator: Configuration and permission validation
-    - extraction_options: Management of extraction options
-    - hive_extractor: Windows hives extraction
-    - user_hive_extractor: User NTUSER.DAT extraction
-    - specific_file_extractor: Specific file extraction with user placeholder support
-    - image_handler: EWF image handling
-    - partition_processor: Partition processing and coordination
-    - hive_types: Constants and types for hives
+Main submodules:
+    - config: Configuration and options management
+    - core: Core functionality (types, partition processor)
+    - extractors: Hive extraction implementations
+    - image: Image file handling
+    - utils: Utility functions (logging, terminal output, file operations)
 """
+
+# Core exports
+from .core import HiveType, HivePath
+from .config import ConfigValidator, ExtractionOptions
+from .image import ImageHandler, EWFImgInfo
+from .extractors import HiveExtractor, UserHiveExtractor, SpecificFileExtractor
 
 __version__ = "1.0.0"
 __author__ = "HiveEx Contributors"
+
+__all__ = [
+    'HiveType',
+    'HivePath',
+    'ConfigValidator',
+    'ExtractionOptions',
+    'ImageHandler',
+    'EWFImgInfo',
+    'HiveExtractor',
+    'UserHiveExtractor',
+    'SpecificFileExtractor',
+]
+

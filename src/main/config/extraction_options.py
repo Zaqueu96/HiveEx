@@ -2,9 +2,9 @@
 Module for managing hive extraction options.
 """
 
-from hive_types import HiveType, HivePath
+from core import HiveType, HivePath
 from utils import terminalPrint
-import utils.loggerUtils as loggerUtils
+from utils import loggerUtils
 
 
 class ExtractionOptions:
