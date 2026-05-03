@@ -18,10 +18,61 @@ logger = loggerUtils.getLogger(__name__)
 
 
 class HivesConfigLoader:
-    """Loads and validates hive configuration files from YAML."""
+    """Loads and validates hive configuration files from YAML with configurable path."""
 
     REQUIRED_FIELDS = {'name', 'path', 'description', 'author', 'created_at', 'updated_at'}
-    CONFIG_DIR = Path(__file__).parent
+    
+    # Default config directory (project root + hives_configs)
+    DEFAULT_CONFIG_DIR = Path(__file__).parent
+    
+    _config_dir = None  # Can be set globally
+
+    @classmethod
+    def set_config_directory(cls, path: str) -> None:
+        """
+        Set the directory where hive configuration files are located.
+        
+        Args:
+            path: Path to the hives configuration directory
+        """
+        config_path = Path(path)
+        if not config_path.exists():
+            raise ValueError(f'Configuration directory does not exist: {path}')
+        if not config_path.is_dir():
+            raise ValueError(f'Configuration path is not a directory: {path}')
+        
+        cls._config_dir = config_path
+        logger.info(f'Configuration directory set to: {path}')
+
+    @classmethod
+    def get_config_directory(cls) -> Path:
+        """
+        Get the current configuration directory.
+        
+        Uses priority order:
+        1. Explicitly set via set_config_directory()
+        2. Environment variable HIVEX_CONFIGS_PATH
+        3. Default (project root + hives_configs)
+        
+        Returns:
+            Path to the configuration directory
+        """
+        # If explicitly set, use that
+        if cls._config_dir:
+            return cls._config_dir
+        
+        # Check environment variable
+        env_path = os.environ.get('HIVEX_CONFIGS_PATH')
+        if env_path:
+            config_path = Path(env_path)
+            if config_path.exists() and config_path.is_dir():
+                logger.debug(f'Using config path from HIVEX_CONFIGS_PATH: {env_path}')
+                return config_path
+            else:
+                logger.warning(f'HIVEX_CONFIGS_PATH points to invalid location: {env_path}')
+        
+        # Use default
+        return cls.DEFAULT_CONFIG_DIR
 
     @classmethod
     def load_all_configs(cls) -> Dict[str, Dict[str, Any]]:
@@ -33,12 +84,13 @@ class HivesConfigLoader:
             Only includes valid configurations; invalid ones are logged and skipped.
         """
         configs = {}
+        config_dir = cls.get_config_directory()
         
         # Find all YAML files in the configs directory
-        yaml_files = list(cls.CONFIG_DIR.glob('*.yaml')) + list(cls.CONFIG_DIR.glob('*.yml'))
+        yaml_files = list(config_dir.glob('*.yaml')) + list(config_dir.glob('*.yml'))
         
         if not yaml_files:
-            logger.warning('No hive configuration files found in hives_configs directory')
+            logger.warning(f'No hive configuration files found in {config_dir}')
             return configs
         
         for yaml_file in yaml_files:
@@ -65,13 +117,15 @@ class HivesConfigLoader:
         Returns:
             Configuration dictionary or None if not found or invalid.
         """
+        config_dir = cls.get_config_directory()
+        
         # Try both .yaml and .yml extensions
-        config_file = cls.CONFIG_DIR / f'{hive_name}.yaml'
+        config_file = config_dir / f'{hive_name}.yaml'
         if not config_file.exists():
-            config_file = cls.CONFIG_DIR / f'{hive_name}.yml'
+            config_file = config_dir / f'{hive_name}.yml'
         
         if not config_file.exists():
-            logger.warning(f'Configuration file not found: {hive_name}.yaml or {hive_name}.yml')
+            logger.warning(f'Configuration file not found: {hive_name}.yaml or {hive_name}.yml in {config_dir}')
             return None
         
         try:

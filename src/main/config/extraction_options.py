@@ -21,6 +21,7 @@ class ExtractionOptions:
         self.extract_ntuser_dat = False
         self.extract_specific_file = False
         self.specific_file_path = None
+        self.hive_configs = {}  # Stores loaded hive configurations
     
     def configure_from_arguments(self, args):
         """
@@ -32,6 +33,13 @@ class ExtractionOptions:
         Raises:
             RuntimeError: If no extraction option is specified
         """
+        # Process config files if provided
+        if hasattr(args, 'config') and args.config:
+            self._process_configs(args.config)
+            # If configs were loaded successfully, we're done
+            if self.hive_configs:
+                return
+        
         self.extract_ntuser_dat = args.ntuserdat
         
         if args.all:
@@ -73,6 +81,26 @@ class ExtractionOptions:
                 terminalPrint.printError('At least one hive extraction option must be specified (--windows, --ntuserdat, --sam, --software, --system, --security)')
                 raise RuntimeError('No hive extraction option specified')
     
+    def _process_configs(self, config_list):
+        """
+        Process configuration files loaded from --config argument.
+        
+        Args:
+            config_list: List of configuration names or file paths
+        """
+        from config import ConfigHandler
+        
+        for config_name in config_list:
+            config = ConfigHandler.load_config(config_name)
+            if config:
+                hive_name = config.get('name', config_name)
+                self.hive_configs[hive_name] = config
+                self.logger.info(f"Loaded configuration for hive: {hive_name}")
+        
+        if not self.hive_configs:
+            terminalPrint.printError('No valid hive configurations were loaded')
+            raise RuntimeError('Failed to load any hive configurations')
+    
     def get_windows_hives_to_extract(self):
         """
         Gets dictionary of Windows hives to extract.
@@ -80,6 +108,13 @@ class ExtractionOptions:
         Returns:
             dict: Dictionary with hive_name: hive_path
         """
+        # If configs are loaded, use them instead
+        if self.hive_configs:
+            hives = {}
+            for hive_name, config in self.hive_configs.items():
+                hives[hive_name] = config.get('path', '')
+            return hives
+        
         hives = {}
         
         if self.extract_all_windows:
@@ -126,3 +161,21 @@ class ExtractionOptions:
             bool: True if specific file extraction is enabled
         """
         return self.extract_specific_file
+    
+    def has_config_based_extraction(self):
+        """
+        Checks if extraction is based on configuration files.
+        
+        Returns:
+            bool: True if hive configs are loaded
+        """
+        return bool(self.hive_configs)
+    
+    def get_hive_configs(self):
+        """
+        Gets loaded hive configurations.
+        
+        Returns:
+            dict: Dictionary of loaded hive configurations
+        """
+        return self.hive_configs

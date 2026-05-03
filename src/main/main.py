@@ -13,7 +13,7 @@ from rich.progress import Progress
 from utils import terminalPrint
 from utils import loggerUtils
 
-from config import ConfigValidator, ExtractionOptions
+from config import ConfigValidator, ExtractionOptions, ConfigHandler
 from image import ImageHandler
 from core import PartitionProcessor
 
@@ -164,6 +164,26 @@ def create_parser():
              'Examples: /Users/[user]/Downloads/file.pdf or /Windows/System32/config/SAM'
     )
     
+    parser.add_argument(
+        '--config', '-cfg',
+        type=str,
+        action='append',
+        help='Extract hives based on configuration file. Can be used multiple times. '
+             'Specify hive name (e.g., sam, system) or path to YAML config file'
+    )
+    
+    parser.add_argument(
+        '--list-configs',
+        action='store_true',
+        help='List all available hive configurations'
+    )
+    
+    parser.add_argument(
+        '--configs-path',
+        type=str,
+        help='Custom path to hive configuration directory (overrides default and HIVEX_CONFIGS_PATH env variable)'
+    )
+    
     return parser
 
 
@@ -171,6 +191,19 @@ def main():
     """Main entry point for the application."""
     parser = create_parser()
     args = parser.parse_args()
+    
+    # Set custom configs path if provided (before other operations)
+    if hasattr(args, 'configs_path') and args.configs_path:
+        try:
+            ConfigHandler.set_config_path(args.configs_path)
+        except Exception as e:
+            terminalPrint.printError(f'Invalid configs path: {e}')
+            sys.exit(1)
+    
+    # Handle --list-configs flag
+    if args.list_configs:
+        ConfigHandler.list_available_configs()
+        sys.exit(0)
     
     try:
         cli = HiveExCLI(arguments=args)
