@@ -1,0 +1,6 @@
+name: SAM
+path: /Windows/System32/config/SAM
+description: Security Account Manager hive containing local user accounts and password hashes
+author: HiveEx Development Team
+created_at: '2026-05-03'
+updated_at: '2026-05-03'

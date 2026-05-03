@@ -1,0 +1,6 @@
+name: SECURITY
+path: /Windows/System32/config/SECURITY
+description: Security hive containing security policies and audit information
+author: HiveEx Development Team
+created_at: '2026-05-03'
+updated_at: '2026-05-03'

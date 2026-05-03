@@ -1,0 +1,6 @@
+name: SOFTWARE
+path: /Windows/System32/config/SOFTWARE
+description: Software hive containing installed software and system configuration information
+author: HiveEx Development Team
+created_at: '2026-05-03'
+updated_at: '2026-05-03'
