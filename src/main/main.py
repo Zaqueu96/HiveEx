@@ -35,7 +35,7 @@ class HiveExCLI:
             arguments: argparse arguments object
         """
         self.logger = loggerUtils.getLogger(__name__)
-        self.image_path = arguments.image
+        self.image_paths = arguments.image  # Now a list of image paths
         self.output_path = arguments.output
         
         # Suppress stderr if not in debug mode
@@ -44,19 +44,38 @@ class HiveExCLI:
         
         # Validate configuration
         validator = ConfigValidator()
-        validator.validate_image_path(self.image_path)
+        
+        # Validate all image paths
+        for image_path in self.image_paths:
+            validator.validate_image_path(image_path)
+        
         validator.validate_output_path_permission(self.output_path)
         
         # Configure extraction options
         self.extraction_options = ExtractionOptions()
         self.extraction_options.configure_from_arguments(arguments)
         
-        self.logger.info("HiveEx initialized successfully")
+        terminalPrint.printInfo(f"Processing {len(self.image_paths)} image(s)")
+        self.logger.info(f"HiveEx initialized successfully with {len(self.image_paths)} image(s)")
     
     def run(self):
-        """Runs the hive extraction process."""
+        """Runs the hive extraction process for all images."""
+        for image_index, image_path in enumerate(self.image_paths, 1):
+            self._process_image(image_path, image_index)
+    
+    def _process_image(self, image_path, image_number):
+        """
+        Processes a single forensic image.
+        
+        Args:
+            image_path (str): Path to the image file
+            image_number (int): Sequential number of the image being processed
+        """
         try:
-            with ImageHandler(self.image_path) as image_handler:
+            terminalPrint.printInfo(f"\n--- Processing image {image_number}/{len(self.image_paths)}: {image_path} ---")
+            self.logger.info(f"Processing image {image_number}/{len(self.image_paths)}: {image_path}")
+            
+            with ImageHandler(image_path) as image_handler:
                 partition_table = image_handler.get_partition_table()
                 terminalPrint.printPartitionsTable(partitionTable=partition_table)
                 
@@ -77,11 +96,11 @@ class HiveExCLI:
                             self.logger.error(f"Error processing partition {partition.addr}: {e}")
         
         except IOError as e:
-            self.logger.error(f"Error opening image: {e}")
-            terminalPrint.printError(f"Error opening image: {e}")
+            self.logger.error(f"Error opening image {image_path}: {e}")
+            terminalPrint.printError(f"Error opening image {image_path}: {e}")
         except Exception as e:
-            self.logger.error(f"Unexpected error: {e}")
-            terminalPrint.printError(f"Unexpected error: {e}")
+            self.logger.error(f"Unexpected error processing {image_path}: {e}")
+            terminalPrint.printError(f"Unexpected error processing {image_path}: {e}")
 
 
 def create_parser():
@@ -99,7 +118,8 @@ def create_parser():
         '--image', '-img',
         required=False,
         type=str,
-        help='Path to the E01 image file (required for extraction operations)'
+        action='append',
+        help='Path to the E01 image file(s). Can be used multiple times to process multiple images (required for extraction operations)'
     )
     
     parser.add_argument(
@@ -212,7 +232,7 @@ def is_extraction_operation(args) -> bool:
         args.ntuserdat,
         args.all,
         args.specific_file is not None,
-        args.config is not None
+        (hasattr(args, 'config') and args.config is not None)
     ]
     return any(extraction_flags)
 
@@ -227,13 +247,15 @@ def validate_arguments(args) -> None:
     Raises:
         RuntimeError: If argument combination is invalid
     """
-    # Check if extraction operation requires image
+    # Check if extraction operation requires image(s)
     if is_extraction_operation(args):
-        if not args.image:
+        if not args.image or len(args.image) == 0:
             raise RuntimeError(
-                'Image file (--image or -img) is required for extraction operations.\n'
-                'Use --image <path> to specify the E01 image file.\n'
-                'Example: python main.py --image image.E01 --sam'
+                'Image file(s) (--image or -img) is/are required for extraction operations.\n'
+                'Use --image <path> to specify E01 image file(s). Can be used multiple times.\n'
+                'Examples:\n'
+                '  python main.py --image image1.E01 --sam\n'
+                '  python main.py --image image1.E01 --image image2.E01 --sam'
             )
 
 
